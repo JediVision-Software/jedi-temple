@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jedivision</groupId>
+    <artifactId>apache-camel-poc</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+
+    <modules>
+        <module>apache-camel-activemq</module>
+        <module>apache-camel-activemq-and-springbean</module>
+        <module>apache-camel-elasticsearch</module>
+        <module>apache-camel-http</module>
+        <module>apache-camel-imap</module>
+        <module>apache-camel-pop3</module>
+        <module>apache-camel-rabbitmq</module>
+        <module>apache-camel-rabbitmq-and-springbean</module>
+        <module>apache-camel-smtp</module>
+        <module>apache-camel-tcp</module>
+        <module>apache-camel-tcp-and-http</module>
+        <module>apache-camel-timer</module>
+    </modules>
+
+    <properties>
+        <!-- environment -->
+        <java.version>1.8</java.version>
+        <!-- dependencies -->
+        <apache.camel.version>2.17.2</apache.camel.version>
+        <log4j.slf4j.version>1.7.16</log4j.slf4j.version>
+        <logback.version>1.1.7</logback.version>
+        <lombok.version>1.16.8</lombok.version>
+        <spring.version>4.2.0.RELEASE</spring.version>
+        <!-- plugins -->
+        <plugin.compiler.version>3.5.1</plugin.compiler.version>
+    </properties>
+
+    <dependencies>
+        <!-- Apache Camel -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>${apache.camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-stream</artifactId>
+            <version>${apache.camel.version}</version>
+        </dependency>
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring</artifactId>
+            <version>${apache.camel.version}</version>
+        </dependency>
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${log4j.slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${log4j.slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${plugin.compiler.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
