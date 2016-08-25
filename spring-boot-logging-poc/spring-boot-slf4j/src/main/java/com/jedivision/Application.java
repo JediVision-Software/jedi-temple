@@ -9,13 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-    private Application() {}
-
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(Application.class);
         springApplication.run(args);
         logMessagesDifferentLevels();
-        System.exit(0);
     }
 
     private static void logMessagesDifferentLevels() {
