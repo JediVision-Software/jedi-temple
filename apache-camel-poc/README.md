@@ -1,8 +1,10 @@
-## Project Structure:
+# apache-camel-poc
+
+Apache Camel — ActiveMQ/RabbitMQ, TCP/HTTP, IMAP/POP3/SMTP, Timer, ElasticSearch, Spring integration
 
 ## Environment
-OS: Mac OS X
-JVM: Oracle Corporation 1.8.0_51
+	OS: Mac OS X
+	JVM: Oracle Corporation 1.8.0_51
 
 ### apache-camel-elasticsearch
 * Configure ElasticSearch clusterName ($ES_HOME/config/elasticsearch.yml)
