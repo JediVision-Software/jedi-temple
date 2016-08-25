@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="file" fileName="spring-boot-lombok-log4j2/logs/log4j2-application.log" bufferedIO="false" advertise="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="stdout"/>
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
+</Configuration>
