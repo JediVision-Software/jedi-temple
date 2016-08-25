@@ -7,5 +7,5 @@ Welcome to Jedi Temple — Proofs of Concepts repository. May the force be with 
 
 # Proofs of Concepts:
 
-* Apache Camel PoC — integration with Spring, ActiveMQ, RabbitMQ, TCP/HTTP, IMAP/POP3/SMTP, Timer, ElasticSearch
+* Apache Camel — integration with Spring/ActiveMQ, RabbitMQ, TCP/HTTP, IMAP/POP3/SMTP, Timer, ElasticSearch
 * to be continued...
