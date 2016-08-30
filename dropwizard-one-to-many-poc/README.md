@@ -54,11 +54,8 @@ CREATE TABLE `equipment` (
 ### Queries
 * Index :
 
-
-    curl -X GET http://localhost:8080/index | json_pp
-
+*curl -X GET http://localhost:8080/index | json_pp*
 
 * Find All:
 
-
-    curl -X GET http://localhost:8080/jedi | json_pp
+*curl -X GET http://localhost:8080/jedi | json_pp*
