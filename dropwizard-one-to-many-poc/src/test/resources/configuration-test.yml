@@ -1,0 +1,6 @@
+# Database settings
+database:
+    driverClass: org.h2.Driver
+    user: root
+    password: password
+    url: jdbc:h2:mem:test;INIT=runscript from 'classpath:data.sql'

@@ -1,0 +1,17 @@
+# Database settings
+database:
+    driverClass: com.mysql.jdbc.Driver
+    user: root
+    password: password
+    url: jdbc:mysql://localhost:3306/starwars
+# Logging
+logging:
+    level: INFO
+    appenders:
+    -   type: console
+        target: stdout
+        logFormat: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{0} - %msg%n"
+    -   type: file
+        currentLogFilename: logs/application.log
+        archive: false
+        logFormat: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{0} - %msg%n"
