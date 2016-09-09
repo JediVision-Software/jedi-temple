@@ -8,6 +8,7 @@ import com.jedivision.repository.JediRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.data.elasticsearch.core.query.Criteria;
 import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,10 @@ import java.util.List;
 
 @Service
 public class JediService {
-    private static final String FORCE = "force";
     private static final String RANK = "rank";
     private static final String AGE = "age";
+    private static final String FORCE = "force";
+    private static final String LOCATION = "location";
 
     private final JediRepository jediRepository;
     private final ElasticsearchTemplate elasticsearchTemplate;
@@ -45,6 +47,7 @@ public class JediService {
                 .rank(Rank.MASTER)
                 .age(700)
                 .force(1000L)
+                .location(new GeoPoint(51.5073509d, -0.1277583d)) // London
                 .equipment(
                         Equipment.builder()
                                 .equipmentType(EquipmentType.ROBE)
@@ -65,6 +68,7 @@ public class JediService {
                 .rank(Rank.MASTER)
                 .age(50)
                 .force(950L)
+                .location(new GeoPoint(41.8724111d, 12.4802249)) // Rome
                 .equipment(
                         Equipment.builder()
                                 .equipmentType(EquipmentType.ARMOR)
@@ -85,6 +89,7 @@ public class JediService {
                 .rank(Rank.PADAWAN)
                 .age(20)
                 .force(850L)
+                .location(new GeoPoint(-41.2864603d, 174.776236d)) // Wellington
                 .equipment(
                         Equipment.builder()
                                 .equipmentType(EquipmentType.ARMOR)
@@ -111,6 +116,7 @@ public class JediService {
                 .rank(Rank.YOUNGLING)
                 .age(11)
                 .force(1001L)
+                .location(new GeoPoint(38.9071923d, -77.0368707d))
                 .build();
 
         // saving
@@ -141,6 +147,13 @@ public class JediService {
         Criteria forceCriteria = Criteria.where(FORCE).greaterThan(force);
         Criteria rankCriteria = Criteria.where(RANK).is(rank);
         CriteriaQuery query = new CriteriaQuery(forceCriteria.and(rankCriteria));
+        return elasticsearchTemplate.queryForList(query, Jedi.class);
+    }
+
+    public List<Jedi> findNear(double latitude, double longitude, String distance) {
+        GeoPoint geoPoint = new GeoPoint(latitude, longitude);
+        Criteria locationCriteria = new Criteria(LOCATION).within(geoPoint, distance);
+        CriteriaQuery query = new CriteriaQuery(locationCriteria);
         return elasticsearchTemplate.queryForList(query, Jedi.class);
     }
 

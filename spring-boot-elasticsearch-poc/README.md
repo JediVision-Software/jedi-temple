@@ -42,6 +42,10 @@ Spring Boot ElasticSearch — "One-To-Many" document relation; ElasticSearch ind
 
 *curl -X GET http://localhost:8080/elastic/jedi/findByForceGreaterThanAndRankIs/800/YOUNGLING | json_pp*
 
+* Find near location (via ElasticSearch Template):
+
+*curl -X GET http://localhost:8080/elastic/jedi/findNear/41.3850639/2.1734035/1500km | json_pp*
+
 * Count by force less than force (via ElasticSearch Template):
 
 *curl -X GET http://localhost:8080/elastic/jedi/countByForceLessThan/1100 | json_pp*

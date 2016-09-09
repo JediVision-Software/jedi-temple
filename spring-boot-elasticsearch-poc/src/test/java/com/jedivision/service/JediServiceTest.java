@@ -11,13 +11,13 @@ import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.data.elasticsearch.core.query.Criteria;
 import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 
 import java.util.List;
 
-import static com.jedivision.test.RandomUtils.randomEnum;
-import static com.jedivision.test.RandomUtils.randomLong;
+import static com.jedivision.test.RandomUtils.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
@@ -136,6 +136,32 @@ public class JediServiceTest extends ApplicationServiceRunner {
         assertTrue("rank".equals(rankCriteria.getField().getName()));
         assertTrue(Criteria.OperationKey.EQUALS.equals(rankCE.getKey()));
         assertTrue(rank.equals(rankCE.getValue()));
+    }
+
+    @Test
+    public void findNear() {
+        // Arrange
+        Double latitude = randomDouble();
+        Double longitude = randomDouble();
+        String distance = randomString();
+
+        // Act
+        serviceUnderTest.findNear(latitude, longitude, distance);
+
+        // Assert
+        ArgumentCaptor<CriteriaQuery> criteriaQuery = ArgumentCaptor.forClass(CriteriaQuery.class);
+        verify(elasticsearchTemplate).queryForList(criteriaQuery.capture(), eq(Jedi.class));
+        Criteria criteria = criteriaQuery.getValue().getCriteria();
+        List<Criteria> criteriaChain = criteria.getCriteriaChain();
+        Criteria locationCriteria = criteriaChain.get(0);
+        Criteria.CriteriaEntry locationCE = locationCriteria.getFilterCriteria().iterator().next();
+        assertTrue("location".equals(locationCriteria.getField().getName()));
+        assertTrue(Criteria.OperationKey.WITHIN.equals(locationCE.getKey()));
+        Object[] queryAttributes = (Object[]) locationCE.getValue();
+        GeoPoint geopoint = (GeoPoint) queryAttributes[0];
+        assertTrue(latitude.equals(geopoint.getLat()));
+        assertTrue(longitude.equals(geopoint.getLon()));
+        assertTrue(distance.equals(queryAttributes[1]));
     }
 
     @Test

@@ -3,6 +3,7 @@ package com.jedivision.document;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
 import java.util.List;
 
@@ -35,6 +36,10 @@ public class Jedi {
     @Getter
     @Setter
     private long force;
+
+    @Getter
+    @Setter
+    private GeoPoint location;
 
     @Getter
     @Setter

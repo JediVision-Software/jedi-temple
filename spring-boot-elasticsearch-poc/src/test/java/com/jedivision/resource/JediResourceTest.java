@@ -9,8 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
-import static com.jedivision.test.RandomUtils.randomEnum;
-import static com.jedivision.test.RandomUtils.randomLong;
+import static com.jedivision.test.RandomUtils.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -104,6 +103,21 @@ public class JediResourceTest extends ApplicationResourceRunner {
 
         // Assert
         verify(jediService).findByForceGreaterThanAndRankIs(eq(force), eq(rank));
+    }
+
+    @Test
+    public void findNear() throws Exception {
+        // Arrange
+        Double latitude = randomDouble();
+        Double longitude = randomDouble();
+        String distance = randomString();
+
+        // Act + Assert
+        mvc.perform(get("/elastic/jedi/findNear/" + latitude + "/" + longitude + "/" + distance).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+        // Assert
+        verify(jediService).findNear(eq(latitude), eq(longitude), eq(distance));
     }
 
     @Test

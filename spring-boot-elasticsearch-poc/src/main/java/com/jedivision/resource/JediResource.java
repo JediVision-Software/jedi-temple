@@ -57,6 +57,13 @@ public class JediResource {
         return jediService.findByForceGreaterThanAndRankIs(force, rank);
     }
 
+    @RequestMapping(value = "/findNear/{latitude}/{longitude}/{distance}", method = RequestMethod.GET)
+    public List<Jedi> findNear(@PathVariable("latitude") double latitude,
+                               @PathVariable("longitude") double longitude,
+                               @PathVariable("distance") String distance) {
+        return jediService.findNear(latitude, longitude, distance);
+    }
+
     @RequestMapping(value = "/countByForceLessThan/{force}", method = RequestMethod.GET)
     public List<Long> countByForceLessThan(@PathVariable("force") Long force) {
         long quantity = jediService.countByForceLessThan(force);
