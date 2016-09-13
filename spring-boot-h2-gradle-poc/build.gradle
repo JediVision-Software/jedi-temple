@@ -1,0 +1,79 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"
+        classpath "net.saliman:gradle-cobertura-plugin:2.3.2"
+    }
+}
+
+group 'com.jedivision'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'cobertura'
+apply plugin: 'jacoco'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Properties
+ext {
+    // Dependencies versions
+    h2Version = '1.4.192'
+    lombokVersion = '1.16.6'
+}
+
+dependencies {
+    // Spring Boot
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // Database: H2
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2:$h2Version")
+    // Lombok
+    compile("org.projectlombok:lombok:$lombokVersion")
+    // Unit Test
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}
+
+cobertura {
+    coverageFormats = ['html', 'xml']
+    coverageIgnoreTrivial = true
+    coverageExcludes = [
+            '.*com.jedivision.entity.*',
+            '.*com.jedivision.Application.*'
+    ]
+    coverageReportDir = new File("$buildDir/reports/cobertura")
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination "${buildDir}/reports/jacoco"
+    }
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: [
+                            '**/entity/**',
+                            '**/Application*.class'
+                    ])
+        })
+    }
+}

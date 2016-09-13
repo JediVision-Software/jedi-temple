@@ -1,0 +1,20 @@
+# Folders
+.gradle/
+build/
+logs/
+
+# IDEA
+.idea/
+*.iml
+
+# Eclipse
+.settings/
+*.classpath
+*.project
+
+# Sonar
+.sonar
+
+# Spring
+nohup.out
+application.pid
