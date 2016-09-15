@@ -28,11 +28,11 @@ Spring Boot Mongo Docker — Ubuntu container (Java, Maven, Git) with Mongodb in
     docker run -it -p 8787:8787/tcp spring-boot-mongo-docker-poc:latest /bin/sh
     
 ### Mongo
-1) Download Mongodb
-2) Create folder /data/db
-3) Run script 
+* Download Mongodb
+* Create folder /data/db
+* Run script 
     sudo chown -R `id -u` /data/db
-4) Run ./mongod
+* Run ./mongod
 
 
 ### Run
