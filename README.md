@@ -13,4 +13,5 @@ Welcome to Jedi Temple — Proofs of Concepts repository. May the force be with 
 * Spring Boot H2 — "Many-To-Many" relation; Embedded H2 database, H2 console
 * Spring Boot H2 Gradle — Embedded H2 database; jacoco, cobertura, gradle
 * Spring Boot Logging — Log4j, Log4j2, Logback, Slf4j, Lombok (Log4j, Log4j2, Slf4j)
+* Spring Boot Mongo Docker — Ubuntu container (Java, Maven, Git) with Mongodb instance inside
 * to be continued...
