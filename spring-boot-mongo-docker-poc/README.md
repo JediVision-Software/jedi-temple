@@ -19,18 +19,23 @@ Spring Boot Mongo Docker — Ubuntu container (Java, Maven, Git) with Mongodb in
     -> Port Forwarding -> Add 8787:8787 (Host Port, Guest Port)
 * Update "git clone" in Dockerfile with credentials and project (username/password/project)
 * Build image: 
+    
     docker build -t spring-boot-mongo-docker-poc .
 * Build image after commit (no cache):
+    
     docker build --no-cache -t spring-boot-mongo-docker-poc .
 * Run container: 
+    
     docker run -it -p 8787:8787/tcp spring-boot-mongo-docker-poc:latest
 * Connect to running container: 
+    
     docker run -it -p 8787:8787/tcp spring-boot-mongo-docker-poc:latest /bin/sh
     
 ### Mongo
 * Download Mongodb
 * Create folder /data/db
 * Run script 
+    
     sudo chown -R `id -u` /data/db
 * Run ./mongod
 
