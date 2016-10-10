@@ -1,6 +1,6 @@
 # spring-boot-redis-poc
 
-Spring Boot Redis — Redis key, value storage(java objects)
+Spring Boot Redis — Redis key-value storage (Java objects)
 
 ### Environment
 	OS: Mac OS X

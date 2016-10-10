@@ -14,5 +14,5 @@ Welcome to Jedi Temple — Proofs of Concepts repository. May the force be with 
 * Spring Boot H2 Gradle — Embedded H2 database; jacoco, cobertura, gradle
 * Spring Boot Logging — Log4j, Log4j2, Logback, Slf4j, Lombok (Log4j, Log4j2, Slf4j)
 * Spring Boot Mongo Docker — Ubuntu container (Java, Maven, Git) with Mongodb instance inside
-* Spring Boot Redis — Redis key, value storage(java objects)
+* Spring Boot Redis — Redis key-value storage (Java objects)
 * to be continued...
