@@ -1,0 +1,15 @@
+# Folders
+target/
+logs/
+
+# IDEA
+.idea/
+*.iml
+
+# Eclipse
+.settings/
+*.classpath
+*.project
+
+# Sonar
+.sonar
