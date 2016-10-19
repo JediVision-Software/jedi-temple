@@ -1,0 +1,66 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE"
+        classpath "net.saliman:gradle-cobertura-plugin:2.3.2"
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'cobertura'
+
+group = 'com.jedivision'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+ext {
+    h2Version = '1.4.192'
+    lombokVersion = '1.16.6'
+    springSecurityTestVersion = '4.0.0.RELEASE'
+}
+
+dependencies {
+    // Spring Boot
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-logging")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    // Spring Security
+    compile("org.springframework.boot:spring-boot-starter-security")
+    // Thymeleaf
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4")
+    // H2
+    compile("com.h2database:h2:$h2Version")
+    // Lombok
+    compile("org.projectlombok:lombok:$lombokVersion")
+    // Unit Test
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test:$springSecurityTestVersion")
+    testCompile("com.jayway.jsonpath:json-path")
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.0'
+}
+
+cobertura {
+    coverageFormats = ['html', 'xml']
+    coverageExcludes = [
+            '.*com.jedivision.configuration.*',
+            '.*com.jedivision.controller.Pages.*',
+            '.*com.jedivision.entity.*',
+            '.*com.jedivision.Application.*'
+    ]
+    coverageIgnoreTrivial = true
+    coverageReportDir = new File("$buildDir/reports/cobertura")
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Index</title>
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <!-- JS -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="form-horizontal">
+        <div class="container">
+            <div class="form-group">
+                <div class="col-md-offset-11">
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="btn btn-sm btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="panel panel-default">
+        <div class="panel-heading">Users filtered on UI</div>
+        <table class="table">
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+            </tr>
+            <tr data-th-each="user: ${users}" th:if="${!user.username.equals(#httpServletRequest.remoteUser)}">
+                <td data-th-text="${user.username}"></td>
+                <td data-th-text="${user.role}"></td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <div class="panel panel-default">
+        <div class="panel-heading">Users filtered on server</div>
+        <table class="table">
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+            </tr>
+            <tr data-th-each="user: ${usersWithoutCurrent}">
+                <td data-th-text="${user.username}"></td>
+                <td data-th-text="${user.role}"></td>
+            </tr>
+        </table>
+    </div>
+    <form sec:authorize="hasAuthority(T(com.jedivision.entity.Role).ADMIN)" class="form-horizontal col-md-6 col-md-offset-3" data-th-action="@{/addUser}" data-th-object="${user}" method="post">
+        <h4 class="m-t-0 header-title"><b>Add User</b></h4>
+        <!-- Fields -->
+        <div class="form-group">
+            <label class="col-md-2 control-label">Username:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" data-th-field="*{username}" placeholder="username" th:required="required"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Password:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" data-th-field="*{password}" placeholder="password" th:required="required"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Role:</label>
+            <div class="col-md-10">
+                <select  class="form-control" data-th-field="*{role}">
+                    <option th:each="role:${T(com.jedivision.entity.Role).values()}" th:value="${role}" th:text="${role}"></option>
+                </select>
+            </div>
+        </div>
+        <!-- Save -->
+        <div class="form-group">
+            <div class="col-md-offset-6">
+                <button class="btn btn-success" type="submit" data-th-text="Add"></button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
