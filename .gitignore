@@ -1,5 +1,7 @@
 # Folders
 target/
+.gradle/
+build/
 logs/
 
 # IDEA
