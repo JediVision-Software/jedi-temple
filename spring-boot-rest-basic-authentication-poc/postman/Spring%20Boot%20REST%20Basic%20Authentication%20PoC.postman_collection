@@ -1,0 +1,181 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Spring Boot REST Basic Authentication PoC",
+		"_postman_id": "88b7c559-8bdc-7484-31b6-82ca46bdc932",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Application Version",
+			"request": {
+				"url": "http://localhost:8080/api/version",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Events - ADMIN Role 200 OK",
+			"request": {
+				"url": "http://localhost:8080/event",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46c2VjcmV0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "zalupa",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "about",
+							"value": "pizda",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "location",
+							"value": "0.2,0.3",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Events - USER Role 200 OK",
+			"request": {
+				"url": "http://localhost:8080/api/event",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjpwYXNzd29yZA==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "zalupa",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "about",
+							"value": "pizda",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "location",
+							"value": "0.2,0.3",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Event - ADMIN Role 200 OK",
+			"request": {
+				"url": "http://localhost:8080/api/event/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46c2VjcmV0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "zalupa",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "about",
+							"value": "pizda",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "location",
+							"value": "0.2,0.3",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Event - USER Role 401 Forbidden",
+			"request": {
+				"url": "http://localhost:8080/api/event/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjpwYXNzd29yZA==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "zalupa",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "about",
+							"value": "pizda",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "location",
+							"value": "0.2,0.3",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
