@@ -16,19 +16,19 @@ Spring Boot REST Basic Authentication PoC — HTTP basic in-memory authenticatio
 
 *curl -X GET http://localhost:8080/api/version | json_pp*
 
-* Find events by ADMIN role [200 "OK"] (option 1):
+* Find events by ADMIN role [200 "OK"] option 1:
 
 *curl -X GET admin:secret@localhost:8080/api/event | json_pp*
 
-* Find events by ADMIN role [200 "OK"] (option 2):
+* Find events by ADMIN role [200 "OK"] option 2:
 
 *curl -H "Authorization: Basic YWRtaW46c2VjcmV0" localhost:8080/api/event | json_pp*
 
-* Find events by USER role [200 "OK"] (option 1):
+* Find events by USER role [200 "OK"] option 1:
 
 *curl -X GET user:password@localhost:8080/api/event | json_pp*
 
-* Find events by USER role [200 "OK"] (option 2):
+* Find events by USER role [200 "OK"] option 2:
 
 *curl -H "Authorization: Basic dXNlcjpwYXNzd29yZA==" localhost:8080/api/event | json_pp*
 
