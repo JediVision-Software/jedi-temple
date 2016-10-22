@@ -23,6 +23,6 @@ Spring Boot Form Login Security Base64 Encoder PoC  — Spring CSRF token authen
 *curl -X POST -F username=user1 -F password=user1 --cookie cookies.txt --cookie-jar cookies.txt http://localhost:8080/login*
 *curl -X GET --cookie cookies.txt --cookie-jar cookies.txt http://localhost:8080/users | json_pp*
 
-* Find users without role [302 "Found"] Return tp /login page:
+* Find users without role [302 "Found"] Return to /login page:
 
 *curl -X GET -L http://localhost:8080/users*
