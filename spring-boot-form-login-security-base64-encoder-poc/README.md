@@ -11,8 +11,6 @@ Spring Boot Form Login Security Base64 Encoder PoC  — Spring CSRF token authen
 ### Run
 * Run Application
 
-### Endpoints
-
 ### Queries
 
 * Find users by ADMIN role [200 "OK"] :
