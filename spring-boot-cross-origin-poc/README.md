@@ -1,6 +1,6 @@
-# spring-boot-cross-origin
+# spring-boot-cross-origin-poc
 
-Spring Boot Cross Origin — Cross Origin via annotation 
+Spring Boot Cross Origin PoC — Cross Origin via annotation 
 
 ### Environment
 	OS: Mac OS X
