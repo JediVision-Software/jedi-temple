@@ -17,10 +17,13 @@ Spring Boot New Relic PoC - Spring Boot instances monitored by New Relic
 ### Run
 * Run Mondodb
 * Run instance1 (from spring-boot-newrelic-instance1 folder)
+
 `mvn clean install spring-boot:run -Drun.jvmArguments="-javaagent:./target/instance1.jar -Dnewrelic.config.file=./target/classes/newrelic/newrelic.yml -Dnewrelic.config.app_name=instance1"`
 * Run instance2 (from spring-boot-newrelic-instance2 folder)
+
 `mvn clean install spring-boot:run -Drun.jvmArguments="-javaagent:./target/instance2.jar -Dnewrelic.config.file=./target/classes/newrelic/newrelic.yml -Dnewrelic.config.app_name=instance2"`
 * Run instance3 (from spring-boot-newrelic-client-emulator folder)
+
 `mvn clean install spring-boot:run -Drun.jvmArguments="-javaagent:./target/instance3.jar -Dnewrelic.config.file=./target/classes/newrelic/newrelic.yml -Dnewrelic.config.app_name=instance3"`
 
 ### Queries
@@ -34,12 +37,12 @@ Spring Boot New Relic PoC - Spring Boot instances monitored by New Relic
 ### New Relic
 Applications statistics
 <p align="center">
-	<img src="https://github.com/JediVision/jedi-temple/blob/master/img/jedi-temple.jpg?raw=true" alt=""/>
+	<img src="https://github.com/JediVision/jedi-temple/blob/master/spring-boot-newrelic-poc/img/applications.png?raw=true" alt=""/>
 </p>
 Service Maps
 <p align="center">
-	<img src="https://github.com/JediVision/jedi-temple/blob/master/img/jedi-temple.jpg?raw=true" alt=""/>
+	<img src="https://github.com/JediVision/jedi-temple/blob/master/spring-boot-newrelic-poc/img/service-map-1.png?raw=true" alt=""/>
 </p>
 <p align="center">
-	<img src="https://github.com/JediVision/jedi-temple/blob/master/img/jedi-temple.jpg?raw=true" alt=""/>
+	<img src="https://github.com/JediVision/jedi-temple/blob/master/spring-boot-newrelic-poc/img/service-map-2.png?raw=true" alt=""/>
 </p>
