@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      database: newrelic_users
+      host: localhost
+      port: 27017
