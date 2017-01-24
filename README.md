@@ -9,6 +9,7 @@ Welcome to Jedi Temple — Proofs of Concepts repository. May the force be with 
 
 * Apache Camel — ActiveMQ/RabbitMQ, TCP/HTTP, IMAP/POP3/SMTP, Timer, ElasticSearch, Spring integration
 * DropWizard — One-To-Many relation with unit tests for DAO, service, resource layers
+* Spring Boot Cassandra Cluster PoC - Cassandra Cluster + Nginx (RoundRobin three Spring Boot apps)
 * Spring Boot Cross Origin PoC — Cross Origin via annotation 
 * Spring Boot ElasticSearch — "One-To-Many" document relation; ElasticSearch index, search API
 * Spring Boot Form Login Security Base64 Encoder PoC  — Spring CSRF token authentication

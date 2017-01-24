@@ -1,0 +1,55 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE"
+    }
+}
+
+group 'com.jedivision'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    lombokVersion = '1.16.6'
+    springBootCassandraVersion = '1.4.5.RELEASE'
+}
+
+dependencies {
+    // Spring Boot
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.data:spring-data-cassandra:$springBootCassandraVersion")
+    // Lombok
+    compile("org.projectlombok:lombok:$lombokVersion")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.0'
+}
+
+task node1 << {
+    bootRun.systemProperty 'spring.profiles.active', 'node1'
+}
+
+task node2 << {
+    bootRun.systemProperty 'spring.profiles.active', 'node2'
+}
+
+task node3 << {
+    bootRun.systemProperty 'spring.profiles.active', 'node3'
+}
