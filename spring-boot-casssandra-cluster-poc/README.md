@@ -15,8 +15,8 @@ Spring Boot Cassandra Cluster PoC - Cassandra Cluster + Nginx (RoundRobin three 
 `https://www.youtube.com/watch?v=oHMJrhMtv3c`
 
 ### Run cassandra nodes:
-`sudo cassandra` - port 7199
-`sudo cassandra2` - port 7188
+`sudo cassandra` - port 7199  
+`sudo cassandra2` - port 7188  
 `sudo cassandra3` - port 7177
 
 ### Install Nginx load balancer:
@@ -25,8 +25,7 @@ Spring Boot Cassandra Cluster PoC - Cassandra Cluster + Nginx (RoundRobin three 
 * Find Nginx location path:
 `brew info nginx`
 `(usually it is /usr/local/etc/nginx)`
-* Configure Nginx:
- 1) copy nginx.conf from project root to /usr/local/etc/nginx/
+* Configure Nginx: copy nginx.conf from project root to /usr/local/etc/nginx/
 * Run Nginx
 `sudo nginx`
 
