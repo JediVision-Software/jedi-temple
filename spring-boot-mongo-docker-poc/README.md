@@ -54,4 +54,9 @@ Spring Boot Mongo Docker — Ubuntu container (Java, Maven, Git) with Mongodb in
 
 *curl -X GET http://localhost:8787/api/findAll | json_pp*
 
+* Upsert:
+
+*curl -X POST http://localhost:8787/api/upsert/jediId?newFullName=newName*
+
 NOTE: http://localhost/ in docker replace with http://dockerIP/ or http://0.0.0.0/
+

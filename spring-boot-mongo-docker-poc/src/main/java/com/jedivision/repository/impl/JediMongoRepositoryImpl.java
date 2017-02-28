@@ -16,26 +16,10 @@ public class JediMongoRepositoryImpl implements JediMongoRepository {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public void upsertFullname(String fullname, String newFullName) {
-        Update update = new Update();
-        mongoTemplate.upsert(Query.query(Criteria.where("fullName").is(fullname)),
-                update.set("fullName", newFullName),
-                Jedi.class);
-    }
-
-    @Override
-    public void upsertAge(String id, int age) {
+    public void upsertFullName(String id, String newFullName) {
         Update update = new Update();
         mongoTemplate.upsert(Query.query(Criteria.where("id").is(id)),
-                update.set("age", age),
-                Jedi.class);
-    }
-
-    @Override
-    public void upsertAge(int age, int newAge) {
-        Update update = new Update();
-        mongoTemplate.upsert(Query.query(Criteria.where("age").is(age)),
-                update.set("age", newAge),
+                update.set("fullName", newFullName),
                 Jedi.class);
     }
 }

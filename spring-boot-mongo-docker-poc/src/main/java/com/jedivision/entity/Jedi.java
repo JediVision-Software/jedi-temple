@@ -16,7 +16,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Jedi {
     @Id
     private String id;
-    @Indexed(unique = true)
     private String fullName;
     private int age;
 }
