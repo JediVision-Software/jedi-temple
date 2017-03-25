@@ -2,7 +2,7 @@
 Welcome to Jedi Temple — Proofs of Concepts repository. May the force be with you.
 
 <p align="center">
-	<img src="https://github.com/JediVision/jedi-temple/blob/master/img/jedi-temple.jpg?raw=true" alt=""/>
+	<img src="https://github.com/JediVision-Software/jedi-temple/blob/master/img/jedi-temple.jpg?raw=true" alt=""/>
 </p>
 
 # Proofs of Concepts:
