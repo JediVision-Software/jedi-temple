@@ -10,10 +10,10 @@ spring:
     config:
       server:
         git:
-          uri: <PLEASE UPDATE>
-          searchPaths:
-          username: <PLEASE UPDATE>
-          password: <PLEASE UPDATE>
+          uri: https://github.com/JediVision-Software/jedi-temple.git
+          searchPaths: /spring-cloud-microservices-poc
+          # username: <PLEASE UPDATE>
+          # password: <PLEASE UPDATE>
           clone-on-start: true
       discovery:
         enabled: true
@@ -39,10 +39,10 @@ spring:
     config:
       server:
         git:
-          uri: <PLEASE UPDATE>
-          searchPaths:
-          username: <PLEASE UPDATE>
-          password: <PLEASE UPDATE>
+          uri: https://github.com/JediVision-Software/jedi-temple.git
+          searchPaths: /spring-cloud-microservices-poc
+          # username: <PLEASE UPDATE>
+          # password: <PLEASE UPDATE>
 server:
   port: 8888
 

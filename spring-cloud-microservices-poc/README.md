@@ -33,6 +33,7 @@ Connects to task-service, makes calls to this service, contains user input logic
 - Run MySQL
 - Run "mvn clean spring-boot:run" in each service
 
+### Sequence
 - discovery-service
 - configuration-service
 - gateway-service
@@ -40,7 +41,7 @@ Connects to task-service, makes calls to this service, contains user input logic
 - user-service
 - monitoring-service
 
-### ocker
+### Docker
 
 - Run "mvn clean install" in project directory
 - Run "export  DOCKER_IP=${DOCKER_IP:-0.0.0.0}"
