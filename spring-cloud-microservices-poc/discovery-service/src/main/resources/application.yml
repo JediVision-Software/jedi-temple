@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: default
+---
+spring:
+  profiles: default
+  application:
+    name: discovery-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  server:
+    enableSelfPreservation: true
+  client:
+    defaultZone: http://localhost:${server.port}
+    register-with-eureka: false
+    fetch-registry: false
+
+---
+spring:
+  profiles: docker
+  application:
+    name: discovery-service
+  cloud:
+    config:
+      uri: http://configuration-service:8888
+      discovery:
+        enabled: true
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: discovery-service
+    prefer-ip-address: true
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/

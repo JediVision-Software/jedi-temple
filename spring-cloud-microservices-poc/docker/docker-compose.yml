@@ -1,0 +1,65 @@
+version: '2'
+services:
+  discovery-service:
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - DOCKER_IP=$DOCKER_IP
+    image: discovery-service
+    ports:
+    - 8761:8761
+  configuration-service:
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - DOCKER_IP=$DOCKER_IP
+    image: configuration-service
+    ports:
+    - 8888:8888
+    links:
+    - discovery-service
+  mongo:
+    image: mongo:3.3
+    ports:
+     - 27018:27017
+  task-service:
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - DOCKER_IP=$DOCKER_IP
+    image: task-service
+    ports:
+    - 8082:8082
+    links:
+    - mongo
+    - discovery-service
+    - configuration-service
+  user-service:
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - DOCKER_IP=$DOCKER_IP
+    image: user-service
+    ports:
+    - 8081:8081
+    links:
+    - mongo
+    - discovery-service
+    - configuration-service
+    - task-service
+  gateway-service:
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - DOCKER_IP=$DOCKER_IP
+    image: gateway-service
+    ports:
+    - 9090:9090
+    links:
+    - discovery-service
+    - configuration-service
+    - task-service
+    - user-service
+  monitoring-service:
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    - DOCKER_IP=$DOCKER_IP
+    image: monitoring-service
+    ports:
+    - 8080:8080
+

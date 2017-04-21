@@ -20,4 +20,5 @@ Welcome to Jedi Temple — Proofs of Concepts repository. May the force be with 
 * Spring Boot New Relic PoC — Spring Boot instances monitored by New Relic
 * Spring Boot Redis — Redis key-value storage (Java objects)
 * Spring Boot REST Basic Authentication PoC — HTTP basic in-memory authentication
+* Spring Cloud PoC - Microservice architecture: Eureka, Ribbon, Hystix, Zuul + Docker-Compose etc.
 * to be continued...

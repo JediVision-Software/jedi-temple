@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: default
+---
+spring:
+  profiles: default
+  application:
+    name: user-service
+
+server:
+  port: 8081
+
+---
+spring:
+  profiles: docker
+  application:
+    name: user-service
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery-service:8761/eureka/
