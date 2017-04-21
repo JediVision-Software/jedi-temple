@@ -11,17 +11,17 @@ Spring Cloud Microservices PoC — Microservice architecture: Eureka, Ribbon, Hy
 ### Application description
 
 ##### configuration-service
-The Server provides an HTTP, resource-based API for external configuration.
+HTTP, resource-based API for external configuration
 ##### discovery-service
-The service that allows other services to find and communicate with each other.
+Find services, allows communication between them
 ##### gateway-service
-The service that implements  a server-side aggregation endpoint, uses Ribbon as load balancer. 
+Server-side aggregation endpoint, uses Ribbon as load balancer
 ##### monitoring-service
-The service allows  to monitor Hystrix metrics in real time.
+Monitoring via Hystrix metrics in real time
 ##### task-service
-Contains general task input logic: saving, deleting, searching.
+Task business logic: saving, deleting, searching
 ##### user-service
-Connects to task-service, makes calls to this service, contains user input logic: saving, deleting, searching.
+Task client; User business logic: saving, deleting, searching
 
 ### Installation guide 
 
