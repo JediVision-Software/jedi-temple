@@ -18,6 +18,7 @@ Welcome to Jedi Temple — Proofs of Concepts repository. May the force be with 
 * Spring Boot Logging — Log4j, Log4j2, Logback, Slf4j, Lombok (Log4j, Log4j2, Slf4j)
 * Spring Boot Mongo Docker — Ubuntu container (Java, Maven, Git) with Mongodb instance inside
 * Spring Boot New Relic PoC — Spring Boot instances monitored by New Relic
+* Spring Boot Reactive — ...
 * Spring Boot Redis — Redis key-value storage (Java objects)
 * Spring Boot REST Basic Authentication PoC — HTTP basic in-memory authentication
 * Spring Cloud PoC - Microservice architecture: Eureka, Ribbon, Hystix, Zuul + Docker-Compose etc.
