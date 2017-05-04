@@ -6,9 +6,8 @@ Spring Boot Reactive Data — ....
 	OS: Mac OS X
 	JVM: Oracle Corporation 1.8.0_102
 	Spring Boot: 1.5.3.RELEASE
-	Mongo: 3.2.9
+	Embedded Mongo: 3.2.2
 
 ### Run
-* Run Mongodb
 * Run Application
 
