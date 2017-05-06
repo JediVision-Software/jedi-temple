@@ -16,5 +16,7 @@ public class Jedi {
     @Id
     private String id;
     private String name;
-    private int age;
+    private Integer age;
+
+
 }
