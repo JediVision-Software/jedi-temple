@@ -34,7 +34,7 @@ public class ReactiveService {
                 Jedi.builder().name("Obi-Wan Kenobi").age(50).build(),
                 Jedi.builder().name("Yoda").age(950).build()
         );
-        reactiveMongoOperations.insertAll(jediFlux.collectList());
+        reactiveMongoOperations.insertAll(jediFlux.collectList()).subscribe();
 
         Mono<Long> count = jediRepository.count();
         LOGGER.info("count: " + count.block());
