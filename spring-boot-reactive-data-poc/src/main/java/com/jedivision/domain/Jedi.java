@@ -17,6 +17,4 @@ public class Jedi {
     private String id;
     private String name;
     private Integer age;
-
-
 }
