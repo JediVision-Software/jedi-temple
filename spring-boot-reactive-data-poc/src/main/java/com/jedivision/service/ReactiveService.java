@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Collections;
+
 @Service
 public class ReactiveService {
     private static final Logger LOGGER = LoggerFactory.getLogger(ReactiveService.class);
@@ -29,14 +31,19 @@ public class ReactiveService {
 
     public void demo() {
         LOGGER.info("Reactive PoC. Insert Operation via @Repository");
+        jediRepository.save(Jedi.builder().name("Qui-Gon Jinn").age(50).build()).block();
+        // expected count === 1 element
+        Mono<Long> count = jediRepository.count();
+        LOGGER.info("Jedi count: " + count.block());
+
         LOGGER.info("Reactive PoC. Insert Operation via ReactiveMongoOperations");
-        Flux<Jedi> jediFlux = Flux.just(
+        Flux<Jedi> jediFluxInsertAll = Flux.just(
                 Jedi.builder().name("Obi-Wan Kenobi").age(50).build(),
                 Jedi.builder().name("Yoda").age(950).build()
         );
-        reactiveMongoOperations.insertAll(jediFlux.collectList()).subscribe();
-
-        Mono<Long> count = jediRepository.count();
-        LOGGER.info("count: " + count.block());
+        reactiveMongoOperations.insertAll(jediFluxInsertAll.collectList()).subscribe();
+        // expected count === 3 element
+        count = jediRepository.count();
+        LOGGER.info("Jedi count: " + count.block());
     }
 }

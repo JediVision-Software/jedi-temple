@@ -9,6 +9,9 @@ import reactor.core.publisher.Mono;
 public interface JediRepository extends ReactiveCrudRepository<Jedi, String> {
     Flux<Jedi> findByName(String name);
 
+    Flux<Jedi> findByAge(Integer age);
+
     @Query("{ 'name': ?0, 'age': ?1}")
     Mono<Jedi> findByNameAndAge(String name, Integer age);
+
 }
