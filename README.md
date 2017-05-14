@@ -8,7 +8,7 @@ Welcome to Jedi Temple — Proofs of Concepts repository. May the force be with 
 # Proofs of Concepts:
 
 * Apache Camel — ActiveMQ/RabbitMQ, TCP/HTTP, IMAP/POP3/SMTP, Timer, ElasticSearch, Spring integration
-* Authentication & Security - types, authorization, best practices etc.
+* Authentication & Security — types, authorization, best practices etc.
 * DropWizard — One-To-Many relation with unit tests for DAO, service, resource layers
 * Spring Boot Cassandra Cluster PoC — Cassandra Cluster + Nginx (RoundRobin three Spring Boot apps)
 * Spring Boot Cross Origin PoC — Cross Origin via annotation 
