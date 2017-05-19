@@ -13,10 +13,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <!-- dependencies -->
+        <commons.codec.version>1.10</commons.codec.version>
+        <junit.version>4.12</junit.version>
         <slf4j.version>1.7.25</slf4j.version>
     </properties>
 
     <dependencies>
+        <!-- Hashing -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons.codec.version}</version>
+        </dependency>
         <!-- Slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -32,7 +40,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
