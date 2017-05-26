@@ -11,7 +11,7 @@ public class Hash {
     private static final Logger LOGGER = LoggerFactory.getLogger(Hash.class);
 
     public static String md5ViaPureJava(String value) throws NoSuchAlgorithmException {
-        LOGGER.debug("Encoding {} with md5 hashing algorithm via pure Java", value);
+        LOGGER.debug("Hashing {} with md5 hashing algorithm via pure Java", value);
         MessageDigest md = MessageDigest.getInstance("MD5");
         md.update(value.getBytes());
         byte[] digest = md.digest();
@@ -23,7 +23,12 @@ public class Hash {
     }
 
     public static String md5ViaCommonsCodec(String value) {
-        LOGGER.debug("Encoding {} with md5 hashing algorithm via commons codec", value);
+        LOGGER.debug("Hashing {} with md5 hashing algorithm via commons codec", value);
         return DigestUtils.md5Hex(value);
+    }
+
+    public static String sha256ViaCommonsCodec(String value) {
+        LOGGER.debug("Hashing {} with sha-256 hashing algorithm via commons codec", value);
+        return DigestUtils.sha256Hex(value);
     }
 }
