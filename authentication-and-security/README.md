@@ -13,9 +13,9 @@ to be continued...
 
 ## Authentication vs. Authorization
 
-**Authentication** : process to understand WHO you are
+**Authentication:** process to understand WHO you are. Typically based on credentials: username / password
 
-**Authorization** : process to understand WHAT you are ALLOWED
+**Authorization:** process to understand WHAT you are ALLOWED. Typically gaining access to resource based on permissions
 
 # Methods
 
