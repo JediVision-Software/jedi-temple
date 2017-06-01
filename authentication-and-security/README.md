@@ -13,8 +13,9 @@ to be continued...
 
 ## Authentication vs. Authorization
 
-Authentication - process to understand WHO you are
-Authorization - process to understand WHAT you are ALLOWED
+**Authentication** : process to understand WHO you are
+
+**Authorization** : process to understand WHAT you are ALLOWED
 
 # Methods
 
