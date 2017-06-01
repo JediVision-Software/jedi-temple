@@ -3,9 +3,9 @@
 Authentication & Security - security, authentication, authorization, best practices etc.
 
 - [Theory](#theory)
-	-[Authentication vs. Authorization](#authentication-authorization)
+	- [Authentication vs. Authorization](#authentication-authorization)
 - [Methods](#methods)
-	-[Basic Auth](#basic-auth)
+	- [Basic Auth](#basic-auth)
 
 # Theory
 
