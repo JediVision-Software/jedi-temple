@@ -3,6 +3,7 @@
 Authentication & Security - security, authentication, authorization, best practices etc.
 
 - [Theory](#theory)
+    - [TLS](#ssl)
     - [HTTP](#http)
 	- [Authentication vs. Authorization](#authentication-authorization)
 - [Methods](#methods)
@@ -20,11 +21,26 @@ OR
 
 > REST - software architecture approach that ...
 
-to be continued...
+Lets start! 
+
+- Eavesdropping - secretly listening. Wide definition in networking: network layer attack that focuses on **capturing** small packets from the network transmitted by other computers
+- Tampering - interfere to cause damage or make unauthorized alterations. Wide definition in networking: network layer attack that focuses that focuses on **changing** small packets from the network transmitted by other computers
+
+## [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)
+
+First of all it is **protocol**. Second of all it is **cryptographic** protocol. "SSL" is referred is to **TLS (Transport Layer Security)** or its predecessor **Secure Sockets Layer (SSL)**. TLS provide data encryption you send over network. Designed to prevent eavesdropping and data tampering.
+
+SSL v2.0 was deprecated (prohibited) in 2011. SSL v3.0 was deprecated in June 2015. Considered as **insecure** protocols. 
+HTTPS done mostly with TLS v1.2. 
+TSL v1.3. is working draft as of July 2016.
+
+_More_:
+- [SSL RFC](https://tools.ietf.org/html/rfc6101)
+- [TLS RFC](https://tools.ietf.org/html/rfc5246)
 
 ## [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 
-First of all it is **protocol**. HTTP is foundation of data communication in WWW. HTTP provide communication between servers and clients. 
+First of all it is **protocol**. Second of all it is **transfer** protocol. HTTP is foundation of data communication in WWW. HTTP provide communication between servers and clients. 
 
 _Must know_: 
 - Request types. Main types - `GET`, `POST`, `PUT`, `DELETE`. Differences, pros and cons. Minor - `HEAD`, `OPTION` etc.
