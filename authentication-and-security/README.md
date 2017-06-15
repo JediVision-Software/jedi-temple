@@ -32,9 +32,9 @@ First of all it is **protocol**. Second of all it is **cryptographic** protocol.
 
 SSL v2.0 was deprecated in 2011. SSL v3.0 was deprecated in June 2015. Considered as **insecure** protocols. 
 
-HTTPS done mostly with TLS v1.2. 
+HTTPS done mostly with TLS v1.2
 
-TSL v1.3. is working draft as of July 2016.
+TSL v1.3 is working draft as of July 2016.
 
 _More_:
 - [SSL RFC](https://tools.ietf.org/html/rfc6101)
