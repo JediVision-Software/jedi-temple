@@ -13,6 +13,7 @@ Authentication & Security - security, authentication, authorization, best practi
 Definition are as simple as it was in school. 
 
 > Dog - an animal that ...
+
 > Circle - figure/shape that ...
 
 OR
