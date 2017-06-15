@@ -30,7 +30,7 @@ Lets start!
 
 First of all it is **protocol**. Second of all it is **cryptographic** protocol. "SSL" is referred is to **TLS (Transport Layer Security)** or its predecessor **Secure Sockets Layer (SSL)**. TLS provide data encryption you send over network. Designed to prevent eavesdropping and data tampering.
 
-SSL v2.0 was deprecated (prohibited) in 2011. SSL v3.0 was deprecated in June 2015. Considered as **insecure** protocols. 
+SSL v2.0 was deprecated in 2011. SSL v3.0 was deprecated in June 2015. Considered as **insecure** protocols. 
 
 HTTPS done mostly with TLS v1.2. 
 
