@@ -3,7 +3,7 @@
 Authentication & Security - security, authentication, authorization, best practices etc.
 
 - [Theory](#theory)
-    - [TLS](#ssl)
+    - [TLS](#tls)
     - [HTTP](#http)
 	- [Authentication vs. Authorization](#authentication-authorization)
 - [Methods](#methods)
