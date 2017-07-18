@@ -1,6 +1,6 @@
 # spring-boot-reactive-data-poc
 
-Spring Boot Reactive Data — ....
+Spring Boot Reactive Data — Spring Boot Reactive: simple Flux, Mono usage
 
 ### Environment
 	OS: Mac OS X
@@ -10,4 +10,3 @@ Spring Boot Reactive Data — ....
 
 ### Run
 * Run Application
-
