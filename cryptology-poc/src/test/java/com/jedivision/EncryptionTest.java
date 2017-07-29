@@ -1,14 +1,13 @@
 package com.jedivision;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
+import java.security.*;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
@@ -21,6 +20,18 @@ public class EncryptionTest {
     private static final String AES_INIT_VECTOR = "Random_JDVVector";
     private static final String BLOWFISH_USERNAME = "username";
     private static final String BLOWFISH_PASSWORD = "password";
+    private static final String RSA = "RSA";
+
+    private static KeyPair keyPair;
+    private static String globalEncryptedRsaValue;
+
+    @BeforeClass
+    public static void runBeforeClass() throws NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchPaddingException {
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSA);
+        keyPairGenerator.initialize(1024);
+        keyPair = keyPairGenerator.generateKeyPair();
+        globalEncryptedRsaValue = Encryption.encryptRSA(keyPair.getPrivate(), GLOBAL_VALUE);
+    }
 
     @Test
     public void encryptAESTest() throws NoSuchPaddingException,
@@ -73,6 +84,32 @@ public class EncryptionTest {
                                             NoSuchPaddingException {
         // Act
         String decodedValue = Encryption.decryptBlowfish(BLOWFISH_USERNAME, BLOWFISH_PASSWORD, GLOBAL_ENCRYPTED_BLOWFISH_VALUE);
+
+        // Assert
+        assertThat(decodedValue, equalTo(GLOBAL_VALUE));
+    }
+
+    @Test
+    public void encryptRSATest() throws IllegalBlockSizeException,
+                                        InvalidKeyException,
+                                        BadPaddingException,
+                                        NoSuchAlgorithmException,
+                                        NoSuchPaddingException {
+        // Act
+        String encodedValue = Encryption.encryptRSA(keyPair.getPrivate(), GLOBAL_VALUE);
+
+        // Assert
+        assertThat(encodedValue, equalTo(globalEncryptedRsaValue));
+    }
+
+    @Test
+    public void decryptRSATest() throws IllegalBlockSizeException,
+                                        InvalidKeyException,
+                                        BadPaddingException,
+                                        NoSuchAlgorithmException,
+                                        NoSuchPaddingException {
+        // Act
+        String decodedValue = Encryption.decryptRSA(keyPair.getPublic(), globalEncryptedRsaValue);
 
         // Assert
         assertThat(decodedValue, equalTo(GLOBAL_VALUE));

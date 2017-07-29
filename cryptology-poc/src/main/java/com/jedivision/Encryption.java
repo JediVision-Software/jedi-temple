@@ -9,13 +9,12 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
+import java.security.*;
 
 public class Encryption {
     private static final String AES = "AES";
     private static final String BLOWFISH = "Blowfish";
+    private static final String RSA = "RSA";
     private static final String CIPHER_AES_INSTANCE = "AES/CBC/PKCS5PADDING";
     private static final String UTF8 = "UTF-8";
 
@@ -71,6 +70,28 @@ public class Encryption {
         SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, BLOWFISH);
         Cipher cipher = Cipher.getInstance(BLOWFISH);
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
+        return new String(original);
+    }
+
+    public static String encryptRSA(PrivateKey privateKey, String value) throws NoSuchPaddingException,
+                                                                                NoSuchAlgorithmException,
+                                                                                InvalidKeyException,
+                                                                                BadPaddingException,
+                                                                                IllegalBlockSizeException {
+        Cipher cipher = Cipher.getInstance(RSA);
+        cipher.init(Cipher.ENCRYPT_MODE, privateKey);
+        byte[] encrypted = cipher.doFinal(value.getBytes());
+        return Base64.encodeBase64String(encrypted);
+    }
+
+    public static String decryptRSA(PublicKey publicKey, String encrypted) throws NoSuchPaddingException,
+                                                                                    NoSuchAlgorithmException,
+                                                                                    InvalidKeyException,
+                                                                                    BadPaddingException,
+                                                                                    IllegalBlockSizeException {
+        Cipher cipher = Cipher.getInstance("RSA");
+        cipher.init(Cipher.DECRYPT_MODE, publicKey);
         byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
         return new String(original);
     }
