@@ -2,6 +2,8 @@ package com.jedivision;
 
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
+
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -9,6 +11,8 @@ public class EncodingTest {
 
     private static final String globalValue = "JDV";
     private static final String globalSpecialValue = "JDV©";
+    private static final String urlValue = "http://www.jedivision-software.com";
+    private static final String encodedUrlValue = "http%3A%2F%2Fwww.jedivision-software.com";
     private static final String globalEncodedBase64Value = "SkRW";
     private static final byte[] globalEncodedASCII_UTF8Value = {74, 68, 86};
     private static final byte[] globalEncodedASCIISpecialValue = {74, 68, 86, 63};
@@ -103,5 +107,23 @@ public class EncodingTest {
 
         // Assert
         assertThat(decodedValue, equalTo(globalSpecialValue));
+    }
+
+    @Test
+    public void encodeURLTest() throws UnsupportedEncodingException {
+        // Act
+        String encodedURL = Encoding.encodeURL(urlValue);
+
+        // Assert
+        assertThat(encodedURL, equalTo(encodedUrlValue));
+    }
+
+    @Test
+    public void decodeURLTest() throws UnsupportedEncodingException {
+        // Act
+        String decodedURL = Encoding.decodeURL(encodedUrlValue);
+
+        // Assert
+        assertThat(decodedURL, equalTo(urlValue));
     }
 }
