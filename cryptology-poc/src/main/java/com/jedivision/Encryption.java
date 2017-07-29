@@ -15,6 +15,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Encryption {
     private static final String AES = "AES";
+    private static final String BLOWFISH = "Blowfish";
     private static final String CIPHER_AES_INSTANCE = "AES/CBC/PKCS5PADDING";
     private static final String UTF8 = "UTF-8";
 
@@ -26,9 +27,9 @@ public class Encryption {
                                                                                         BadPaddingException,
                                                                                         IllegalBlockSizeException {
         IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(UTF8));
-        SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes(UTF8), AES);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(UTF8), AES);
         Cipher cipher = Cipher.getInstance(CIPHER_AES_INSTANCE);
-        cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
         byte[] encrypted = cipher.doFinal(value.getBytes());
         return Base64.encodeBase64String(encrypted);
     }
@@ -41,9 +42,35 @@ public class Encryption {
                                                                                             BadPaddingException,
                                                                                             IllegalBlockSizeException {
         IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(UTF8));
-        SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes(UTF8), AES);
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(UTF8), AES);
         Cipher cipher = Cipher.getInstance(CIPHER_AES_INSTANCE);
-        cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, iv);
+        byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
+        return new String(original);
+    }
+
+    public static String encryptBlowfish(String username, String password, String value) throws NoSuchPaddingException,
+                                                                                            NoSuchAlgorithmException,
+                                                                                            InvalidKeyException,
+                                                                                            BadPaddingException,
+                                                                                            IllegalBlockSizeException {
+        byte[] keyData = (username + password).getBytes();
+        SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, BLOWFISH);
+        Cipher cipher = Cipher.getInstance(BLOWFISH);
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+        byte[] encrypted = cipher.doFinal(value.getBytes());
+        return Base64.encodeBase64String(encrypted);
+    }
+
+    public static String decryptBlowfish(String username, String password, String encrypted) throws NoSuchPaddingException,
+                                                                                                NoSuchAlgorithmException,
+                                                                                                InvalidKeyException,
+                                                                                                BadPaddingException,
+                                                                                                IllegalBlockSizeException {
+        byte[] keyData = (username + password).getBytes();
+        SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, BLOWFISH);
+        Cipher cipher = Cipher.getInstance(BLOWFISH);
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
         byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
         return new String(original);
     }
