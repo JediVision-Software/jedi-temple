@@ -3,6 +3,7 @@ package com.jedivision;
 import java.util.Base64;
 
 import static java.nio.charset.StandardCharsets.US_ASCII;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Encoding {
 
@@ -20,5 +21,13 @@ public class Encoding {
 
     public static String decodeASCII(byte[] bytes) {
         return new String(bytes, US_ASCII);
+    }
+
+    public static byte[] encodeUTF8(String value) {
+        return value.getBytes(UTF_8);
+    }
+
+    public static String decodeUTF8(byte[] bytes) {
+        return new String(bytes, UTF_8);
     }
 }
