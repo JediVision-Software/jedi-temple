@@ -2,14 +2,11 @@
 
 Cryptology PoC - encoding, encryption, hashing, obfuscation algorithms skeletons, usages, best practices. 
 	
-### Encoding
+## Encoding
 
-The purpose of encoding is to transform data so that it can be properly (and safely) consumed by a different type of system, 
-e.g. binary data being sent over email, or viewing special characters on a web page. 
-The goal is not to keep information secret, but rather to ensure that it’s able to be properly consumed.
+Encoding transforms data into another format using a scheme that is **publicly available** so that it can easily be reversed.
 
-**Encoding transforms data into another format using a scheme that is publicly available so that it can easily be reversed. 
-It does not require a key as the only thing required to decode it is the algorithm that was used to encode it.**
+Encoding is two-way function. You can encode and decode data without any keys (you only need to now character table).
 
 #### Examples of algorithms:
 
@@ -18,26 +15,53 @@ It does not require a key as the only thing required to decode it is the algorit
 * URL Encoding
 * Base64
 
-### Encryption
+## Encryption
 
-The purpose of encryption is to transform data in order to keep it secret from others, 
-e.g. sending someone a secret letter that only they should be able to read, or securely sending a password over the Internet. 
-Rather than focusing on usability, the goal is to ensure the data cannot be consumed by anyone other than the intended recipient(s).
+Encryption is the process of transforming data using an algorithm (called **cipher**) to make it unreadable to anyone except those who knows the secret **key**.
 
-**Encryption transforms data into another format in such a way that only specific individual(s) can reverse the transformation. 
-It uses a key, which is kept secret, in conjunction with the plaintext and the algorithm, in order to perform the encryption operation. 
-As such, the ciphertext, algorithm, and key are all required to return to the plaintext.**
+Encryption is two-way function. You can encrypt and decrypt data (but you need **key** and know **encryption algorithm** which was used to decrypt data correctly).
+
+### Symmetric Encryption
+ 
+In symmetric encryption the same key is used for both encryption and decryption.
+
+In short, to make a symmetric encryption/decryption you should:
+- Create a byte arrays from the initial password and initial key
+- Create a new **SecretKeySpec** from the key byte array, using some encryption algorithm (for example AES).
+- Create a new **Cipher** for the transformation and initialize it in
+**encryption mode**, with the specified key. 
+- Make the encryption. The result is a new byte array with the encrypted password.
+- Initialize the cipher in **decryption mode**, using the same key.
+- Make the decryption of the encrypted byte array. The result will be a decrypted byte array.
 
 #### Examples of algorithms:
 
 * AES
 * Blowfish
+
+### Asymmetric Encryption
+ 
+Asymmetric encryption is a strong encryption technique which uses a **key pair**.
+The key pair consists  of a **public key** and a **private key**. 
+Data or message encrypted using the private key can **only** be decrypted using the public key.
+
+In short, to make a asymmetric encryption/decryption you should:
+- Generate **KeyPair** with **KeyPairGenerator** 
+- Get **public key** and **private key** from key pair
+- Create a new **Cipher** for the transformation and initialize it in
+**encryption mode**, with the **private** key. 
+- Make the encryption. The result is a new byte array with the encrypted password.
+- Initialize the cipher in **decryption mode**, using the **public** key.
+- Make the decryption of the encrypted byte array. The result will be a decrypted byte array.
+
+#### Examples of algorithms:
+
 * RSA
 
-### Hashing
+## Hashing
 
 to be continued...
 
-### Obfuscation
+## Obfuscation
 
 to be continued...
