@@ -9,121 +9,121 @@ import static org.junit.Assert.assertThat;
 
 public class EncodingTest {
 
-    private static final String globalValue = "JDV";
-    private static final String globalSpecialValue = "JDV©";
-    private static final String urlValue = "http://www.jedivision-software.com";
-    private static final String encodedUrlValue = "http%3A%2F%2Fwww.jedivision-software.com";
-    private static final String globalEncodedBase64Value = "SkRW";
-    private static final byte[] globalEncodedASCII_UTF8Value = {74, 68, 86};
-    private static final byte[] globalEncodedASCIISpecialValue = {74, 68, 86, 63};
-    private static final byte[] globalEncodedUTF8SpecialValue = {74, 68, 86, -62, -87};
-    private static final String globalDecodedASCIISpecialValue = "JDV?";
+    private static final String GLOBAL_VALUE = "JDV";
+    private static final String GLOBAL_SPECIAL_VALUE = "JDV©";
+    private static final String URL_VALUE = "http://www.jedivision-software.com";
+    private static final String ENCODED_URL_VALUE = "http%3A%2F%2Fwww.jedivision-software.com";
+    private static final String GLOBAL_ENCODED_BASE_64_VALUE = "SkRW";
+    private static final byte[] GLOBAL_ENCODED_ASCII_UTF_8_VALUE = {74, 68, 86};
+    private static final byte[] GLOBAL_ENCODED_ASCII_SPECIAL_VALUE = {74, 68, 86, 63};
+    private static final byte[] GLOBAL_ENCODED_UTF_8_SPECIAL_VALUE = {74, 68, 86, -62, -87};
+    private static final String GLOBAL_DECODED_ASCII_SPECIAL_VALUE = "JDV?";
 
     @Test
     public void encodeBase64Test() {
         // Act
-        String encodedValue = Encoding.encodeBase64(globalValue);
+        String encodedValue = Encoding.encodeBase64(GLOBAL_VALUE);
 
         // Assert
-        assertThat(encodedValue, equalTo(globalEncodedBase64Value));
+        assertThat(encodedValue, equalTo(GLOBAL_ENCODED_BASE_64_VALUE));
     }
 
     @Test
     public void decodeBase64Test() {
         // Act
-        String decodedValue = Encoding.decodeBase64(globalEncodedBase64Value);
+        String decodedValue = Encoding.decodeBase64(GLOBAL_ENCODED_BASE_64_VALUE);
 
         // Assert
-        assertThat(decodedValue, equalTo(globalValue));
+        assertThat(decodedValue, equalTo(GLOBAL_VALUE));
     }
 
     @Test
     public void encodeASCIITest() {
         // Act
-        byte[] encodedBytes = Encoding.encodeASCII(globalValue);
+        byte[] encodedBytes = Encoding.encodeASCII(GLOBAL_VALUE);
 
         // Assert
-        assertThat(encodedBytes, equalTo(globalEncodedASCII_UTF8Value));
+        assertThat(encodedBytes, equalTo(GLOBAL_ENCODED_ASCII_UTF_8_VALUE));
     }
 
     @Test
     public void decodeASCIITest() {
         // Act
-        String decodedValue = Encoding.decodeASCII(globalEncodedASCII_UTF8Value);
+        String decodedValue = Encoding.decodeASCII(GLOBAL_ENCODED_ASCII_UTF_8_VALUE);
 
         // Assert
-        assertThat(decodedValue, equalTo(globalValue));
+        assertThat(decodedValue, equalTo(GLOBAL_VALUE));
     }
 
     @Test
     public void encodeASCIISpecialTest() {
         // Act
-        byte[] encodedBytes = Encoding.encodeASCII(globalSpecialValue);
+        byte[] encodedBytes = Encoding.encodeASCII(GLOBAL_SPECIAL_VALUE);
 
         // Assert
-        assertThat(encodedBytes, equalTo(globalEncodedASCIISpecialValue));
+        assertThat(encodedBytes, equalTo(GLOBAL_ENCODED_ASCII_SPECIAL_VALUE));
     }
 
     @Test
     public void decodeASCIISpecialTest() {
         // Act
-        String decodedValue = Encoding.decodeASCII(globalEncodedASCIISpecialValue);
+        String decodedValue = Encoding.decodeASCII(GLOBAL_ENCODED_ASCII_SPECIAL_VALUE);
 
         // Assert
-        assertThat(decodedValue, equalTo(globalDecodedASCIISpecialValue));
+        assertThat(decodedValue, equalTo(GLOBAL_DECODED_ASCII_SPECIAL_VALUE));
     }
 
     @Test
     public void encodeUTF8Test() {
         // Act
-        byte[] encodedBytes = Encoding.encodeUTF8(globalValue);
+        byte[] encodedBytes = Encoding.encodeUTF8(GLOBAL_VALUE);
 
         // Assert
-        assertThat(encodedBytes, equalTo(globalEncodedASCII_UTF8Value));
+        assertThat(encodedBytes, equalTo(GLOBAL_ENCODED_ASCII_UTF_8_VALUE));
     }
 
     @Test
     public void decodeUTF8Test() {
         // Act
-        String decodedValue = Encoding.decodeUTF8(globalEncodedASCII_UTF8Value);
+        String decodedValue = Encoding.decodeUTF8(GLOBAL_ENCODED_ASCII_UTF_8_VALUE);
 
         // Assert
-        assertThat(decodedValue, equalTo(globalValue));
+        assertThat(decodedValue, equalTo(GLOBAL_VALUE));
     }
 
     @Test
     public void encodeUTF8SpecialTest() {
         // Act
-        byte[] encodedBytes = Encoding.encodeUTF8(globalSpecialValue);
+        byte[] encodedBytes = Encoding.encodeUTF8(GLOBAL_SPECIAL_VALUE);
 
         // Assert
-        assertThat(encodedBytes, equalTo(globalEncodedUTF8SpecialValue));
+        assertThat(encodedBytes, equalTo(GLOBAL_ENCODED_UTF_8_SPECIAL_VALUE));
     }
 
     @Test
     public void decodeUTF8SpecialTest() {
         // Act
-        String decodedValue = Encoding.decodeUTF8(globalEncodedUTF8SpecialValue);
+        String decodedValue = Encoding.decodeUTF8(GLOBAL_ENCODED_UTF_8_SPECIAL_VALUE);
 
         // Assert
-        assertThat(decodedValue, equalTo(globalSpecialValue));
+        assertThat(decodedValue, equalTo(GLOBAL_SPECIAL_VALUE));
     }
 
     @Test
     public void encodeURLTest() throws UnsupportedEncodingException {
         // Act
-        String encodedURL = Encoding.encodeURL(urlValue);
+        String encodedURL = Encoding.encodeURL(URL_VALUE);
 
         // Assert
-        assertThat(encodedURL, equalTo(encodedUrlValue));
+        assertThat(encodedURL, equalTo(ENCODED_URL_VALUE));
     }
 
     @Test
     public void decodeURLTest() throws UnsupportedEncodingException {
         // Act
-        String decodedURL = Encoding.decodeURL(encodedUrlValue);
+        String decodedURL = Encoding.decodeURL(ENCODED_URL_VALUE);
 
         // Assert
-        assertThat(decodedURL, equalTo(urlValue));
+        assertThat(decodedURL, equalTo(URL_VALUE));
     }
 }
