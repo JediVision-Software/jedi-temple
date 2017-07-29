@@ -20,7 +20,19 @@ It does not require a key as the only thing required to decode it is the algorit
 
 ### Encryption
 
-to be continued...  
+The purpose of encryption is to transform data in order to keep it secret from others, 
+e.g. sending someone a secret letter that only they should be able to read, or securely sending a password over the Internet. 
+Rather than focusing on usability, the goal is to ensure the data cannot be consumed by anyone other than the intended recipient(s).
+
+**Encryption transforms data into another format in such a way that only specific individual(s) can reverse the transformation. 
+It uses a key, which is kept secret, in conjunction with the plaintext and the algorithm, in order to perform the encryption operation. 
+As such, the ciphertext, algorithm, and key are all required to return to the plaintext.**
+
+#### Examples of algorithms:
+
+* AES
+* Blowfish
+* RSA
 
 ### Hashing
 
