@@ -9,6 +9,7 @@ public class EncodingTest {
 
     private static final String globalValue = "JDV";
     private static final String globalEncodedBase64Value = "SkRW";
+    private static final byte[] globalEncodedASCIIValue = {74, 68, 86};
 
     @Test
     public void encodeBase64Test() {
@@ -28,4 +29,21 @@ public class EncodingTest {
         assertThat(decodedValue, equalTo(globalValue));
     }
 
+    @Test
+    public void encodeASCIITest() {
+        // Act
+        byte[] encodedBytes = Encoding.encodeASCII(globalValue);
+
+        // Assert
+        assertThat(encodedBytes, equalTo(globalEncodedASCIIValue));
+    }
+
+    @Test
+    public void decodeASCIITest() {
+        // Act
+        String decodedValue = Encoding.decodeASCII(globalEncodedASCIIValue);
+
+        // Assert
+        assertThat(decodedValue, equalTo(globalValue));
+    }
 }
