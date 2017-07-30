@@ -14,6 +14,7 @@
         <java.version>1.8</java.version>
         <!-- dependencies -->
         <commons.codec.version>1.10</commons.codec.version>
+        <jbcrypt.version>0.4</jbcrypt.version>
         <junit.version>4.12</junit.version>
         <slf4j.version>1.7.25</slf4j.version>
     </properties>
@@ -24,6 +25,11 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>${commons.codec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>${jbcrypt.version}</version>
         </dependency>
         <!-- Slf4j -->
         <dependency>

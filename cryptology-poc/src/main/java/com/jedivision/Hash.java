@@ -1,6 +1,7 @@
 package com.jedivision;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,5 +47,10 @@ public class Hash {
     public static String sha512ViaCommonsCodec(String value) {
         LOGGER.debug("Hashing {} with sha-512 hashing algorithm via commons codec", value);
         return DigestUtils.sha512Hex(value);
+    }
+
+    public static String bcryptViaBCrypt(String value) {
+        LOGGER.debug("Hashing {} with bcrypt hashing algorithm via commons codec", value);
+        return BCrypt.hashpw(value, BCrypt.gensalt(12));
     }
 }

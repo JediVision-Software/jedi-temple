@@ -1,11 +1,13 @@
 package com.jedivision;
 
 import org.junit.Test;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.security.NoSuchAlgorithmException;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class HashTest {
 
@@ -68,5 +70,15 @@ public class HashTest {
 
         // Assert
         assertThat(encodedValue, equalTo(GLOBAL_ENCODED_SHA_512_VALUE));
+    }
+
+    @Test
+    public void bcryptViaBCryptTest() throws NoSuchAlgorithmException {
+        // Act
+        String encodedValue = Hash.bcryptViaBCrypt(GLOBAL_VALUE);
+        boolean matched = BCrypt.checkpw(GLOBAL_VALUE, encodedValue);
+
+        // Assert
+        assertTrue(matched);
     }
 }

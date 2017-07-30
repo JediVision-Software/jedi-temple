@@ -70,7 +70,6 @@ Hashing is the process of storing the text password as encrypted with some hash 
 * SHA
     - SHA-1 (160-bit output hash algorithm)
     - SHA-2 (256-bit, 384-bit, 512-bit hash algorithms)
-* PBKDF2
 * BCrypt
 * SCrypt
 
