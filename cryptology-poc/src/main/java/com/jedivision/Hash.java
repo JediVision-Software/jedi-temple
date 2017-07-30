@@ -27,8 +27,23 @@ public class Hash {
         return DigestUtils.md5Hex(value);
     }
 
+    public static String sha1ViaCommonsCodec(String value) {
+        LOGGER.debug("Hashing {} with sha-1 hashing algorithm via commons codec", value);
+        return DigestUtils.sha1Hex(value);
+    }
+
     public static String sha256ViaCommonsCodec(String value) {
         LOGGER.debug("Hashing {} with sha-256 hashing algorithm via commons codec", value);
         return DigestUtils.sha256Hex(value);
+    }
+
+    public static String sha384ViaCommonsCodec(String value) {
+        LOGGER.debug("Hashing {} with sha-384 hashing algorithm via commons codec", value);
+        return DigestUtils.sha384Hex(value);
+    }
+
+    public static String sha512ViaCommonsCodec(String value) {
+        LOGGER.debug("Hashing {} with sha-512 hashing algorithm via commons codec", value);
+        return DigestUtils.sha512Hex(value);
     }
 }
