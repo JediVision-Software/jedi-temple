@@ -1,5 +1,6 @@
 package com.jedivision;
 
+import com.lambdaworks.crypto.SCryptUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
@@ -50,7 +51,12 @@ public class Hash {
     }
 
     public static String bcryptViaBCrypt(String value) {
-        LOGGER.debug("Hashing {} with bcrypt hashing algorithm via commons codec", value);
+        LOGGER.debug("Hashing {} with bcrypt hashing algorithm", value);
         return BCrypt.hashpw(value, BCrypt.gensalt(12));
+    }
+
+    public static String scryptViaLambdaWorks(String value) {
+        LOGGER.debug("Hashing {} with scrypt hashing algorithm", value);
+        return SCryptUtil.scrypt(value, 16, 16, 16);
     }
 }

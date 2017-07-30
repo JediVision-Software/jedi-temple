@@ -1,5 +1,6 @@
 package com.jedivision;
 
+import com.lambdaworks.crypto.SCryptUtil;
 import org.junit.Test;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -77,6 +78,16 @@ public class HashTest {
         // Act
         String encodedValue = Hash.bcryptViaBCrypt(GLOBAL_VALUE);
         boolean matched = BCrypt.checkpw(GLOBAL_VALUE, encodedValue);
+
+        // Assert
+        assertTrue(matched);
+    }
+
+    @Test
+    public void scryptViaLambdaWorksTest() throws NoSuchAlgorithmException {
+        // Act
+        String encodedValue = Hash.scryptViaLambdaWorks(GLOBAL_VALUE);
+        boolean matched = SCryptUtil.check(GLOBAL_VALUE, encodedValue);
 
         // Assert
         assertTrue(matched);

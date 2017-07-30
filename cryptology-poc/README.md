@@ -75,7 +75,7 @@ Hashing is the process of storing the text password as encrypted with some hash 
 
 Even SHA hashed secure passwords are able to be cracked with today’s fast hardwares. 
 To beat that, you will need algorithms which can make the brute force attacks slower and minimize the impact. 
-Such algorithms are PBKDF2, BCrypt and SCrypt.
+Such algorithms are BCrypt and SCrypt.
 
 ## Obfuscation
 

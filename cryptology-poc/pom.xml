@@ -15,6 +15,7 @@
         <!-- dependencies -->
         <commons.codec.version>1.10</commons.codec.version>
         <jbcrypt.version>0.4</jbcrypt.version>
+        <scrypt.version>1.4.0</scrypt.version>
         <junit.version>4.12</junit.version>
         <slf4j.version>1.7.25</slf4j.version>
     </properties>
@@ -30,6 +31,11 @@
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
             <version>${jbcrypt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lambdaworks</groupId>
+            <artifactId>scrypt</artifactId>
+            <version>${scrypt.version}</version>
         </dependency>
         <!-- Slf4j -->
         <dependency>
