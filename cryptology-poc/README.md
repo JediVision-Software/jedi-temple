@@ -60,7 +60,23 @@ In short, to make a asymmetric encryption/decryption you should:
 
 ## Hashing
 
-to be continued...
+Hashing is the process of storing the text password as encrypted with some hash one-way function (**Message Digest**) sequence of characters.
+
+**Storing the text password with hashing is most dangerous thing for application security today.**
+
+#### Examples of digests:
+
+* MD5 (is considered broken)
+* SHA
+    - SHA-1 (160-bit output hash algorithm)
+    - SHA-2 (256-bit, 512-bit hash algorithm)
+* PBKDF2
+* BCrypt
+* SCrypt
+
+Even SHA hashed secure passwords are able to be cracked with today’s fast hardwares. 
+To beat that, you will need algorithms which can make the brute force attacks slower and minimize the impact. 
+Such algorithms are PBKDF2, BCrypt and SCrypt.
 
 ## Obfuscation
 
