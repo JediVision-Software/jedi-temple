@@ -17,7 +17,7 @@ public class HashTest {
     private static final String GLOBAL_ENCODED_SHA_512_VALUE = "5c840b09e9f7d93991bc59c7a6aad6457f294cfb0edc2522e5117393c51fdf8dc6793d77dda284ef000d3c8de2561b31199c64c3231c7e4a7bb0c63f795422fd";
 
     @Test
-    public void md5ViaPureJava() throws NoSuchAlgorithmException {
+    public void md5ViaPureJavaTest() throws NoSuchAlgorithmException {
         // Act
         String encodedValue = Hash.md5ViaPureJava(GLOBAL_VALUE);
 
@@ -26,7 +26,7 @@ public class HashTest {
     }
 
     @Test
-    public void md5ViaCommonsCodec() throws NoSuchAlgorithmException {
+    public void md5ViaCommonsCodecTest() throws NoSuchAlgorithmException {
         // Act
         String encodedValue = Hash.md5ViaCommonsCodec(GLOBAL_VALUE);
 
@@ -35,7 +35,7 @@ public class HashTest {
     }
 
     @Test
-    public void sha1ViaCommonsCodec() throws NoSuchAlgorithmException {
+    public void sha1ViaCommonsCodecTest() throws NoSuchAlgorithmException {
         // Act
         String encodedValue = Hash.sha1ViaCommonsCodec(GLOBAL_VALUE);
 
@@ -44,7 +44,7 @@ public class HashTest {
     }
 
     @Test
-    public void sha256ViaCommonsCodec() throws NoSuchAlgorithmException {
+    public void sha256ViaCommonsCodecTest() throws NoSuchAlgorithmException {
         // Act
         String encodedValue = Hash.sha256ViaCommonsCodec(GLOBAL_VALUE);
 
@@ -53,7 +53,7 @@ public class HashTest {
     }
 
     @Test
-    public void sha384ViaCommonsCodec() throws NoSuchAlgorithmException {
+    public void sha384ViaCommonsCodecTest() throws NoSuchAlgorithmException {
         // Act
         String encodedValue = Hash.sha384ViaCommonsCodec(GLOBAL_VALUE);
 
@@ -62,7 +62,7 @@ public class HashTest {
     }
 
     @Test
-    public void sha512ViaCommonsCodec() throws NoSuchAlgorithmException {
+    public void sha512ViaCommonsCodecTest() throws NoSuchAlgorithmException {
         // Act
         String encodedValue = Hash.sha512ViaCommonsCodec(GLOBAL_VALUE);
 

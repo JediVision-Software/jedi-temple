@@ -9,10 +9,11 @@ import java.security.NoSuchAlgorithmException;
 
 public class Hash {
     private static final Logger LOGGER = LoggerFactory.getLogger(Hash.class);
+    private static final String MD5 = "MD5";
 
     public static String md5ViaPureJava(String value) throws NoSuchAlgorithmException {
         LOGGER.debug("Hashing {} with md5 hashing algorithm via pure Java", value);
-        MessageDigest md = MessageDigest.getInstance("MD5");
+        MessageDigest md = MessageDigest.getInstance(MD5);
         md.update(value.getBytes());
         byte[] digest = md.digest();
         StringBuilder sb = new StringBuilder();
