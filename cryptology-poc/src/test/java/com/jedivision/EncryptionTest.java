@@ -3,9 +3,7 @@ package com.jedivision;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import javax.crypto.*;
 import java.io.UnsupportedEncodingException;
 import java.security.*;
 
@@ -21,16 +19,28 @@ public class EncryptionTest {
     private static final String BLOWFISH_USERNAME = "username";
     private static final String BLOWFISH_PASSWORD = "password";
     private static final String RSA = "RSA";
+    private static final String DES = "DES";
 
-    private static KeyPair keyPair;
+    private static KeyPair rsaKeyPair;
+    private static SecretKey desKey;
     private static String globalEncryptedRsaValue;
+    private static String globalEncryptedDesValue;
 
     @BeforeClass
-    public static void runBeforeClass() throws NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchPaddingException {
+    public static void runBeforeClass() throws NoSuchAlgorithmException,
+                                                IllegalBlockSizeException,
+                                                InvalidKeyException,
+                                                BadPaddingException,
+                                                NoSuchPaddingException {
+        // DAS Encryption key preparing
+        KeyGenerator keygenerator = KeyGenerator.getInstance(DES);
+        desKey = keygenerator.generateKey();
+        globalEncryptedDesValue = Encryption.encryptDES(desKey, GLOBAL_VALUE);
+        // RSA Encryption keys preparing
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSA);
         keyPairGenerator.initialize(1024);
-        keyPair = keyPairGenerator.generateKeyPair();
-        globalEncryptedRsaValue = Encryption.encryptRSA(keyPair.getPrivate(), GLOBAL_VALUE);
+        rsaKeyPair = keyPairGenerator.generateKeyPair();
+        globalEncryptedRsaValue = Encryption.encryptRSA(rsaKeyPair.getPrivate(), GLOBAL_VALUE);
     }
 
     @Test
@@ -90,13 +100,39 @@ public class EncryptionTest {
     }
 
     @Test
+    public void encryptDESTest() throws IllegalBlockSizeException,
+                                        InvalidKeyException,
+                                        BadPaddingException,
+                                        NoSuchAlgorithmException,
+                                        NoSuchPaddingException {
+        // Act
+        String encodedValue = Encryption.encryptDES(desKey, GLOBAL_VALUE);
+
+        // Assert
+        assertThat(encodedValue, equalTo(globalEncryptedDesValue));
+    }
+
+    @Test
+    public void decryptDESTest() throws IllegalBlockSizeException,
+                                        InvalidKeyException,
+                                        BadPaddingException,
+                                        NoSuchAlgorithmException,
+                                        NoSuchPaddingException {
+        // Act
+        String encodedValue = Encryption.decryptDES(desKey, globalEncryptedDesValue);
+
+        // Assert
+        assertThat(encodedValue, equalTo(GLOBAL_VALUE));
+    }
+
+    @Test
     public void encryptRSATest() throws IllegalBlockSizeException,
                                         InvalidKeyException,
                                         BadPaddingException,
                                         NoSuchAlgorithmException,
                                         NoSuchPaddingException {
         // Act
-        String encodedValue = Encryption.encryptRSA(keyPair.getPrivate(), GLOBAL_VALUE);
+        String encodedValue = Encryption.encryptRSA(rsaKeyPair.getPrivate(), GLOBAL_VALUE);
 
         // Assert
         assertThat(encodedValue, equalTo(globalEncryptedRsaValue));
@@ -109,7 +145,7 @@ public class EncryptionTest {
                                         NoSuchAlgorithmException,
                                         NoSuchPaddingException {
         // Act
-        String decodedValue = Encryption.decryptRSA(keyPair.getPublic(), globalEncryptedRsaValue);
+        String decodedValue = Encryption.decryptRSA(rsaKeyPair.getPublic(), globalEncryptedRsaValue);
 
         // Assert
         assertThat(decodedValue, equalTo(GLOBAL_VALUE));

@@ -1,9 +1,6 @@
 package com.jedivision;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
@@ -11,11 +8,14 @@ import java.security.*;
 import java.util.Base64;
 
 public class Encryption {
+    // Constants
     private static final String AES = "AES";
     private static final String BLOWFISH = "Blowfish";
     private static final String RSA = "RSA";
-    private static final String CIPHER_AES_INSTANCE = "AES/CBC/PKCS5PADDING";
     private static final String UTF8 = "UTF-8";
+    // Chipper instances constants
+    private static final String CIPHER_AES_INSTANCE = "AES/CBC/PKCS5PADDING";
+    private static final String CIPHER_DES_INSTANCE = "DES/ECB/PKCS5PADDING";
 
     public static String encryptAES(String key, String initVector, String value) throws UnsupportedEncodingException,
                                                                                         NoSuchPaddingException,
@@ -69,6 +69,28 @@ public class Encryption {
         SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, BLOWFISH);
         Cipher cipher = Cipher.getInstance(BLOWFISH);
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encrypted));
+        return new String(original);
+    }
+
+    public static String encryptDES(SecretKey desKey, String value) throws NoSuchPaddingException,
+                                                                            NoSuchAlgorithmException,
+                                                                            InvalidKeyException,
+                                                                            BadPaddingException,
+                                                                            IllegalBlockSizeException {
+        Cipher cipher = Cipher.getInstance(CIPHER_DES_INSTANCE);
+        cipher.init(Cipher.ENCRYPT_MODE, desKey);
+        byte[] encrypted = cipher.doFinal(value.getBytes());
+        return Base64.getEncoder().encodeToString(encrypted);
+    }
+
+    public static String decryptDES(SecretKey desKey, String encrypted) throws NoSuchPaddingException,
+                                                                            NoSuchAlgorithmException,
+                                                                            InvalidKeyException,
+                                                                            BadPaddingException,
+                                                                            IllegalBlockSizeException {
+        Cipher cipher = Cipher.getInstance(CIPHER_DES_INSTANCE);
+        cipher.init(Cipher.DECRYPT_MODE, desKey);
         byte[] original = cipher.doFinal(Base64.getDecoder().decode(encrypted));
         return new String(original);
     }
