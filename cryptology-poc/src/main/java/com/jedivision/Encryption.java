@@ -1,7 +1,5 @@
 package com.jedivision;
 
-import org.apache.commons.codec.binary.Base64;
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -10,6 +8,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.UnsupportedEncodingException;
 import java.security.*;
+import java.util.Base64;
 
 public class Encryption {
     private static final String AES = "AES";
@@ -30,7 +29,7 @@ public class Encryption {
         Cipher cipher = Cipher.getInstance(CIPHER_AES_INSTANCE);
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
         byte[] encrypted = cipher.doFinal(value.getBytes());
-        return Base64.encodeBase64String(encrypted);
+        return Base64.getEncoder().encodeToString(encrypted);
     }
 
     public static String decryptAES(String key, String initVector, String encrypted) throws UnsupportedEncodingException,
@@ -44,7 +43,7 @@ public class Encryption {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(UTF8), AES);
         Cipher cipher = Cipher.getInstance(CIPHER_AES_INSTANCE);
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, iv);
-        byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encrypted));
         return new String(original);
     }
 
@@ -58,7 +57,7 @@ public class Encryption {
         Cipher cipher = Cipher.getInstance(BLOWFISH);
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
         byte[] encrypted = cipher.doFinal(value.getBytes());
-        return Base64.encodeBase64String(encrypted);
+        return Base64.getEncoder().encodeToString(encrypted);
     }
 
     public static String decryptBlowfish(String username, String password, String encrypted) throws NoSuchPaddingException,
@@ -70,7 +69,7 @@ public class Encryption {
         SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, BLOWFISH);
         Cipher cipher = Cipher.getInstance(BLOWFISH);
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
-        byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encrypted));
         return new String(original);
     }
 
@@ -82,7 +81,7 @@ public class Encryption {
         Cipher cipher = Cipher.getInstance(RSA);
         cipher.init(Cipher.ENCRYPT_MODE, privateKey);
         byte[] encrypted = cipher.doFinal(value.getBytes());
-        return Base64.encodeBase64String(encrypted);
+        return Base64.getEncoder().encodeToString(encrypted);
     }
 
     public static String decryptRSA(PublicKey publicKey, String encrypted) throws NoSuchPaddingException,
@@ -90,9 +89,9 @@ public class Encryption {
                                                                                     InvalidKeyException,
                                                                                     BadPaddingException,
                                                                                     IllegalBlockSizeException {
-        Cipher cipher = Cipher.getInstance("RSA");
+        Cipher cipher = Cipher.getInstance(RSA);
         cipher.init(Cipher.DECRYPT_MODE, publicKey);
-        byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
+        byte[] original = cipher.doFinal(Base64.getDecoder().decode(encrypted));
         return new String(original);
     }
 }
