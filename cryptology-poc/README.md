@@ -25,19 +25,12 @@ Encryption is two-way function. You can encrypt and decrypt data (but you need *
  
 In symmetric encryption the same key is used for both encryption and decryption.
 
-In short, to make a symmetric encryption/decryption you should:
-- Create a byte arrays from the initial password and initial key
-- Create a new **SecretKeySpec** from the key byte array, using some encryption algorithm (for example AES).
-- Create a new **Cipher** for the transformation and initialize it in
-**encryption mode**, with the specified key. 
-- Make the encryption. The result is a new byte array with the encrypted password.
-- Initialize the cipher in **decryption mode**, using the same key.
-- Make the decryption of the encrypted byte array. The result will be a decrypted byte array.
-
 #### Examples of algorithms:
 
 * AES
 * Blowfish
+* DES
+* RC2
 
 ### Asymmetric Encryption
  
@@ -45,18 +38,12 @@ Asymmetric encryption is a strong encryption technique which uses a **key pair**
 The key pair consists  of a **public key** and a **private key**. 
 Data or message encrypted using the private key can **only** be decrypted using the public key.
 
-In short, to make a asymmetric encryption/decryption you should:
-- Generate **KeyPair** with **KeyPairGenerator** 
-- Get **public key** and **private key** from key pair
-- Create a new **Cipher** for the transformation and initialize it in
-**encryption mode**, with the **private** key. 
-- Make the encryption. The result is a new byte array with the encrypted password.
-- Initialize the cipher in **decryption mode**, using the **public** key.
-- Make the decryption of the encrypted byte array. The result will be a decrypted byte array.
-
 #### Examples of algorithms:
 
 * RSA
+* Diffie-Hellman
+* ECC
+* ElGamal
 
 ## Hashing
 
