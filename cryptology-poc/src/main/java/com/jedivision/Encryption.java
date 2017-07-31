@@ -13,7 +13,7 @@ public class Encryption {
     private static final String BLOWFISH = "Blowfish";
     private static final String RSA = "RSA";
     private static final String UTF8 = "UTF-8";
-    // Chipper instances constants
+    // Cipher instances constants (Algorithm name/Mode (optional)/Padding scheme (optional))
     private static final String CIPHER_AES_INSTANCE = "AES/CBC/PKCS5PADDING";
     private static final String CIPHER_DES_INSTANCE = "DES/ECB/PKCS5PADDING";
 
