@@ -32,7 +32,8 @@ public class EncryptionTest {
                                                 IllegalBlockSizeException,
                                                 InvalidKeyException,
                                                 BadPaddingException,
-                                                NoSuchPaddingException {
+                                                NoSuchPaddingException,
+                                                UnsupportedEncodingException {
         // DAS Encryption key preparing
         KeyGenerator keygenerator = KeyGenerator.getInstance(DES);
         desKey = keygenerator.generateKey();
@@ -79,7 +80,8 @@ public class EncryptionTest {
                                             InvalidKeyException,
                                             BadPaddingException,
                                             NoSuchAlgorithmException,
-                                            NoSuchPaddingException {
+                                            NoSuchPaddingException,
+                                            UnsupportedEncodingException {
         // Act
         String encodedValue = Encryption.encryptBlowfish(BLOWFISH_USERNAME, BLOWFISH_PASSWORD, GLOBAL_VALUE);
 
@@ -92,7 +94,8 @@ public class EncryptionTest {
                                             InvalidKeyException,
                                             BadPaddingException,
                                             NoSuchAlgorithmException,
-                                            NoSuchPaddingException {
+                                            NoSuchPaddingException,
+                                            UnsupportedEncodingException {
         // Act
         String decodedValue = Encryption.decryptBlowfish(BLOWFISH_USERNAME, BLOWFISH_PASSWORD, GLOBAL_ENCRYPTED_BLOWFISH_VALUE);
 
@@ -105,7 +108,8 @@ public class EncryptionTest {
                                         InvalidKeyException,
                                         BadPaddingException,
                                         NoSuchAlgorithmException,
-                                        NoSuchPaddingException {
+                                        NoSuchPaddingException,
+                                        UnsupportedEncodingException {
         // Act
         String encodedValue = Encryption.encryptDES(desKey, GLOBAL_VALUE);
 
@@ -161,7 +165,8 @@ public class EncryptionTest {
                                         InvalidKeyException,
                                         BadPaddingException,
                                         NoSuchAlgorithmException,
-                                        NoSuchPaddingException {
+                                        NoSuchPaddingException,
+                                        UnsupportedEncodingException {
         // Act
         String encodedValue = Encryption.encryptRSA(rsaKeyPair.getPrivate(), GLOBAL_VALUE);
 
