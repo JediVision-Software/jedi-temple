@@ -47,22 +47,22 @@ Data or message encrypted using the private key can **only** be decrypted using 
 
 ## Hashing
 
-Hashing is the process of storing the text password as encrypted with some hash one-way function (**Message Digest**) sequence of characters.
+Hashing is the process of storing the text password as encrypted sequence of characters, with some hash one-way function.
 
 **Storing the text password with hashing is most dangerous thing for application security today.**
 
 #### Examples of digests:
 
 * MD5 (is considered broken)
-* SHA
-    - SHA-1 (160-bit output hash algorithm)
-    - SHA-2 (256-bit, 384-bit, 512-bit hash algorithms)
-* BCrypt
+* SHA (is considered will be broken in nearest future)
+    - SHA-1 (160-bit output hash)
+    - SHA-2 (256-bit, 384-bit, 512-bit hash algorithms. The most reliable is 512-bit hash algorithm)
+* BCrypt 
 * SCrypt
 
 Even SHA hashed secure passwords are able to be cracked with today’s fast hardwares. 
-To beat that, you will need algorithms which can make the brute force attacks slower and minimize the impact. 
-Such algorithms are BCrypt and SCrypt.
+To avoid this situation, you may use algorithms which can make the brute force attacks slower and minimize the impact.
+For example BCrypt and SCrypt algorithms.
 
 ## Obfuscation
 
