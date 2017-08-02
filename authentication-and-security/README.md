@@ -5,6 +5,7 @@ Authentication & Security - security, authentication, authorization, best practi
 - [Theory](#theory)
     - [TLS](#tls)
     - [HTTP](#http)
+    - [HTTP 1.0 vs. HTTP 2.0](#http1vs.http2)
 	- [Authentication vs. Authorization](#authentication-authorization)
 - [Methods](#methods)
 	- [Basic Auth](#basic-auth)
@@ -42,7 +43,7 @@ _More_:
 
 ## [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 
-First of all it is **protocol**. Second of all it is **transfer** protocol. HTTP is foundation of data communication in WWW. HTTP provide communication between servers and clients. 
+First of all it is **protocol**. Second of all it is **transfer** protocol. HTTP is foundation of data communication in World Wide Web. HTTP provide communication between servers and clients. 
 
 _Must know_: 
 - Request types. Main types - `GET`, `POST`, `PUT`, `DELETE`. Differences, pros and cons. Minor - `HEAD`, `OPTION` etc.
@@ -52,6 +53,10 @@ _Must know_:
 _More_: 
 - [HTTP Documentation](http://httpwg.org/specs)
 - [HTTP Guide](https://www.w3.org/TR/chips/)
+
+## HTTP 1.0 vs. HTTP 2.0
+
+to be continued...
 
 ## Authentication vs. Authorization
 
