@@ -56,7 +56,17 @@ _More_:
 
 ## HTTP 1.0 vs. HTTP 2.0
 
-to be continued...
+_Must know_: 
+- HTTP/2 is binary, instead of textual
+- HTTP/2 is fully multiplexed: multiple requests in parallel over a single TCP connection
+- HTTP/2 uses header compression
+- HTTP/2 uses ALPN extention (?): faster encrypted connections
+- HTTP/2 reduces RTT (round trip times): loading faster without any optimization
+- HTTP/2 allows servers to "push" resources: saving extra round trip
+- Google Chrome and Mozilla Firefox require TLS (SSL) usage to implement HTTP/2
+
+_More_:
+- [HTTP/2 RFC](http://httpwg.org/specs/rfc7540.html)
 
 ## Authentication vs. Authorization
 
