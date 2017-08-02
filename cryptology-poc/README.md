@@ -8,12 +8,15 @@ Encoding transforms data into another format using a scheme that is **publicly a
 
 Encoding is two-way function. You can encode and decode data without any keys (you only need to now character table).
 
-#### Examples of algorithms:
+#### Examples of schemes:
 
-* ASCII
-* Unicode
-* URL Encoding
-* Base64
+* ASCII (contains 0 - 127 character positions)
+* Unicode family - most popular is UTF-8 (contains 0 - 255 character positions)
+
+#### Usages:
+
+* Base64 - is encoding and decoding technique used to convert binary data to an ASCII text format, and vice versa.
+* URL Encoding - is the practice of translating unprintable or special characters in URLs to a form understandable by web browsers and servers.
 
 ## Encryption
 
