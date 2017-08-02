@@ -31,9 +31,9 @@ In symmetric encryption the same key is used for both encryption and decryption.
 #### Examples of algorithms:
 
 * AES (used by U.S. for securing sensitive but unclassified material)
+* RC2 (used in some versions of Outlook Express by Microsoft)
 * Blowfish (used in OpenSSH, PuTTY, Linux in the mainline kernel, starting with v2.5.47)
 * DES (considered highly insecure, can be decrypted by brute force within a single day by EFF "Deep Crack" machines)
-* RC2
 
 ### Asymmetric Encryption
  
