@@ -5,7 +5,7 @@ Authentication & Security - security, authentication, authorization, best practi
 - [Theory](#theory)
     - [TLS](#tls)
     - [HTTP](#http)
-    - [HTTP 1.0 vs. HTTP 2.0](#http1vs.http2)
+    - [HTTP 1.0 vs. HTTP 2.0](#http-10-vs-http-20)
 	- [Authentication vs. Authorization](#authentication-authorization)
 - [Methods](#methods)
 	- [Basic Auth](#basic-auth)
