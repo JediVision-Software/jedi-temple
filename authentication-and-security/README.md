@@ -6,6 +6,7 @@ Authentication & Security - security, authentication, authorization, best practi
     - [TLS](#tls)
     - [HTTP](#http)
     - [HTTP 1.0 vs. HTTP 2.0](#http-10-vs-http-20)
+    - [HTTPS](#https)
 	- [Authentication vs. Authorization](#authentication-authorization)
 - [Methods](#methods)
 	- [Basic Auth](#basic-auth)
@@ -67,6 +68,10 @@ _Must know_:
 
 _More_:
 - [HTTP/2 RFC](http://httpwg.org/specs/rfc7540.html)
+
+## [HTTPS](https://en.wikipedia.org/wiki/HTTPS)
+
+HTTPS = HTTP + TLS (SSL). Originally designed for payment system and transaction. HTTPS encrypts data that is sent with your HTTP request/response. Importation in authentication prospective. Ensures protection from eavesdropping. 
 
 ## Authentication vs. Authorization
 
