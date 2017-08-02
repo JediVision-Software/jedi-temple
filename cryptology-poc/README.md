@@ -43,7 +43,7 @@ Data or message encrypted using the private key can **only** be decrypted using 
 
 #### Examples of algorithms:
 
-* RSA
+* RSA (used in SSH, OpenPGP, S/MIME, and SSL/TLS protocols)
 * Diffie-Hellman
 * ECC
 * ElGamal
