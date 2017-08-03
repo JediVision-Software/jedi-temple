@@ -46,7 +46,7 @@ Data or message encrypted using the private key can **only** be decrypted using 
 * RSA (used in SSH, OpenPGP, S/MIME, and SSL/TLS protocols)
 * Diffie-Hellman
 * ECC (support for ECC included in products of Motorola and Siemens)
-* ElGamal
+* ElGamal (is used in the free GNU Privacy Guard software, recent versions of PGP)
 
 ## Hashing
 
