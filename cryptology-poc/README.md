@@ -72,3 +72,11 @@ Obfuscation make source code hard to understand for people which do not wrote th
 Obfuscation process provide encrypting some or all of the code, renaming useful class and variable names.
 A tool called an obfuscator can convert source code into a program that works the same way, 
 but is much harder to read and understand.
+
+#### Obfuscators examples:
+
+* ProGuard
+* JODE
+* JavaGuard
+* RetroGuard
+* yGuard
