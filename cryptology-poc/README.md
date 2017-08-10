@@ -68,4 +68,7 @@ For example BCrypt and SCrypt algorithms.
 
 ## Obfuscation
 
-to be continued...
+Obfuscation make source code hard to understand for people which do not wrote this code.
+Obfuscation process provide encrypting some or all of the code, renaming useful class and variable names.
+A tool called an obfuscator can convert source code into a program that works the same way, 
+but is much harder to read and understand.
