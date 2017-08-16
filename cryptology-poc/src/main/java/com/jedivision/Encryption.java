@@ -8,13 +8,14 @@ import java.io.UnsupportedEncodingException;
 import java.security.*;
 import java.util.Base64;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class Encryption {
     // Constants
     private static final String AES = "AES";
     private static final String RC2 = "RC2";
     private static final String BLOWFISH = "Blowfish";
     private static final String RSA = "RSA";
-    private static final String UTF8 = "UTF-8";
     // Cipher instances constants (Algorithm name/Mode (optional)/Padding scheme (optional))
     private static final String CIPHER_AES_INSTANCE = "AES/CBC/PKCS5PADDING";
     private static final String CIPHER_DES_INSTANCE = "DES/ECB/PKCS5PADDING";
@@ -27,11 +28,11 @@ public class Encryption {
                                                                                         InvalidKeyException,
                                                                                         BadPaddingException,
                                                                                         IllegalBlockSizeException {
-        IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(UTF8));
-        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(UTF8), AES);
+        IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(UTF_8));
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(UTF_8), AES);
         Cipher cipher = Cipher.getInstance(CIPHER_AES_INSTANCE);
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, iv);
-        byte[] encrypted = cipher.doFinal(value.getBytes(UTF8));
+        byte[] encrypted = cipher.doFinal(value.getBytes(UTF_8));
         return Base64.getEncoder().encodeToString(encrypted);
     }
 
@@ -42,8 +43,8 @@ public class Encryption {
                                                                                             InvalidKeyException,
                                                                                             BadPaddingException,
                                                                                             IllegalBlockSizeException {
-        IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(UTF8));
-        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(UTF8), AES);
+        IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(UTF_8));
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(UTF_8), AES);
         Cipher cipher = Cipher.getInstance(CIPHER_AES_INSTANCE);
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, iv);
         byte[] original = cipher.doFinal(Base64.getDecoder().decode(encrypted));
@@ -56,11 +57,11 @@ public class Encryption {
                                                                                                 BadPaddingException,
                                                                                                 IllegalBlockSizeException,
                                                                                                 UnsupportedEncodingException {
-        byte[] keyData = (username + password).getBytes(UTF8);
+        byte[] keyData = (username + password).getBytes(UTF_8);
         SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, BLOWFISH);
         Cipher cipher = Cipher.getInstance(BLOWFISH);
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
-        byte[] encrypted = cipher.doFinal(value.getBytes(UTF8));
+        byte[] encrypted = cipher.doFinal(value.getBytes(UTF_8));
         return Base64.getEncoder().encodeToString(encrypted);
     }
 
@@ -70,7 +71,7 @@ public class Encryption {
                                                                                                     BadPaddingException,
                                                                                                     IllegalBlockSizeException,
                                                                                                     UnsupportedEncodingException {
-        byte[] keyData = (username + password).getBytes(UTF8);
+        byte[] keyData = (username + password).getBytes(UTF_8);
         SecretKeySpec secretKeySpec = new SecretKeySpec(keyData, BLOWFISH);
         Cipher cipher = Cipher.getInstance(BLOWFISH);
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
@@ -86,7 +87,7 @@ public class Encryption {
                                                                             UnsupportedEncodingException {
         Cipher cipher = Cipher.getInstance(CIPHER_DES_INSTANCE);
         cipher.init(Cipher.ENCRYPT_MODE, desKey);
-        byte[] encrypted = cipher.doFinal(value.getBytes(UTF8));
+        byte[] encrypted = cipher.doFinal(value.getBytes(UTF_8));
         return Base64.getEncoder().encodeToString(encrypted);
     }
 
@@ -108,10 +109,10 @@ public class Encryption {
                                                                                         BadPaddingException,
                                                                                         IllegalBlockSizeException,
                                                                                         UnsupportedEncodingException {
-        RC2ParameterSpec ivSpec = new RC2ParameterSpec(key.getBytes(UTF8).length, initVector.getBytes(UTF8));
+        RC2ParameterSpec ivSpec = new RC2ParameterSpec(key.getBytes(UTF_8).length, initVector.getBytes(UTF_8));
         Cipher cipher = Cipher.getInstance(CIPHER_RC2_INSTANCE);
-        cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key.getBytes(UTF8), RC2), ivSpec);
-        byte[] encrypted = cipher.doFinal(value.getBytes(UTF8));
+        cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key.getBytes(UTF_8), RC2), ivSpec);
+        byte[] encrypted = cipher.doFinal(value.getBytes(UTF_8));
         return Base64.getEncoder().encodeToString(encrypted);
     }
 
@@ -122,9 +123,9 @@ public class Encryption {
                                                                                             BadPaddingException,
                                                                                             IllegalBlockSizeException,
                                                                                             UnsupportedEncodingException {
-        RC2ParameterSpec ivSpec = new RC2ParameterSpec(key.getBytes(UTF8).length, initVector.getBytes(UTF8));
+        RC2ParameterSpec ivSpec = new RC2ParameterSpec(key.getBytes(UTF_8).length, initVector.getBytes(UTF_8));
         Cipher cipher = Cipher.getInstance(CIPHER_RC2_INSTANCE);
-        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key.getBytes(UTF8), RC2), ivSpec);
+        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key.getBytes(UTF_8), RC2), ivSpec);
         byte[] original = cipher.doFinal(Base64.getDecoder().decode(encrypted));
         return new String(original);
     }
@@ -137,7 +138,7 @@ public class Encryption {
                                                                                 UnsupportedEncodingException {
         Cipher cipher = Cipher.getInstance(RSA);
         cipher.init(Cipher.ENCRYPT_MODE, privateKey);
-        byte[] encrypted = cipher.doFinal(value.getBytes(UTF8));
+        byte[] encrypted = cipher.doFinal(value.getBytes(UTF_8));
         return Base64.getEncoder().encodeToString(encrypted);
     }
 
