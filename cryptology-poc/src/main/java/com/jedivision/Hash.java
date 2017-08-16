@@ -9,14 +9,17 @@ import org.slf4j.LoggerFactory;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class Hash {
     private static final Logger LOGGER = LoggerFactory.getLogger(Hash.class);
     private static final String MD5 = "MD5";
+    private static final String SHA1 = "SHA-1";
 
     public static String md5ViaPureJava(String value) throws NoSuchAlgorithmException {
         LOGGER.debug("Hashing {} with md5 hashing algorithm via pure Java", value);
         MessageDigest md = MessageDigest.getInstance(MD5);
-        md.update(value.getBytes());
+        md.update(value.getBytes(UTF_8));
         byte[] digest = md.digest();
         StringBuilder sb = new StringBuilder();
         for (byte b : digest) {
@@ -28,6 +31,18 @@ public class Hash {
     public static String md5ViaCommonsCodec(String value) {
         LOGGER.debug("Hashing {} with md5 hashing algorithm via commons codec", value);
         return DigestUtils.md5Hex(value);
+    }
+
+    public static String sha1ViaPureJava(String value) throws NoSuchAlgorithmException {
+        LOGGER.debug("Hashing {} with sha1 hashing algorithm via pure Java", value);
+        MessageDigest md = MessageDigest.getInstance(SHA1);
+        md.update(value.getBytes(UTF_8));
+        byte[] digest = md.digest();
+        StringBuilder sb = new StringBuilder();
+        for (byte b : digest) {
+            sb.append(String.format("%02x", b & 0xff));
+        }
+        return sb.toString();
     }
 
     public static String sha1ViaCommonsCodec(String value) {
