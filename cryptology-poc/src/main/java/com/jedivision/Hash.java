@@ -13,20 +13,14 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class Hash {
     private static final Logger LOGGER = LoggerFactory.getLogger(Hash.class);
+    // Algorithms
     private static final String MD5 = "MD5";
     private static final String SHA1 = "SHA-1";
     private static final String SHA256 = "SHA-256";
 
     public static String md5ViaPureJava(String value) throws NoSuchAlgorithmException {
         LOGGER.debug("Hashing {} with md5 hashing algorithm via pure Java", value);
-        MessageDigest md = MessageDigest.getInstance(MD5);
-        md.update(value.getBytes(UTF_8));
-        byte[] digest = md.digest();
-        StringBuilder sb = new StringBuilder();
-        for (byte b : digest) {
-            sb.append(String.format("%02x", b & 0xff));
-        }
-        return sb.toString();
+        return hashViaPureJava(MD5, value);
     }
 
     public static String md5ViaCommonsCodec(String value) {
@@ -35,15 +29,8 @@ public class Hash {
     }
 
     public static String sha1ViaPureJava(String value) throws NoSuchAlgorithmException {
-        LOGGER.debug("Hashing {} with sha1 hashing algorithm via pure Java", value);
-        MessageDigest md = MessageDigest.getInstance(SHA1);
-        md.update(value.getBytes(UTF_8));
-        byte[] digest = md.digest();
-        StringBuilder sb = new StringBuilder();
-        for (byte b : digest) {
-            sb.append(String.format("%02x", b & 0xff));
-        }
-        return sb.toString();
+        LOGGER.debug("Hashing {} with sha-1 hashing algorithm via pure Java", value);
+        return hashViaPureJava(SHA1, value);
     }
 
     public static String sha1ViaCommonsCodec(String value) {
@@ -52,15 +39,8 @@ public class Hash {
     }
 
     public static String sha256ViaPureJava(String value) throws NoSuchAlgorithmException {
-        LOGGER.debug("Hashing {} with sha1 hashing algorithm via pure Java", value);
-        MessageDigest md = MessageDigest.getInstance(SHA256);
-        md.update(value.getBytes(UTF_8));
-        byte[] digest = md.digest();
-        StringBuilder sb = new StringBuilder();
-        for (byte b : digest) {
-            sb.append(String.format("%02x", b & 0xff));
-        }
-        return sb.toString();
+        LOGGER.debug("Hashing {} with sha-256 hashing algorithm via pure Java", value);
+        return hashViaPureJava(SHA256, value);
     }
 
     public static String sha256ViaCommonsCodec(String value) {
@@ -86,5 +66,20 @@ public class Hash {
     public static String scryptViaLambdaWorks(String value) {
         LOGGER.debug("Hashing {} with scrypt hashing algorithm", value);
         return SCryptUtil.scrypt(value, 16, 16, 16);
+    }
+
+    // ------------------------------------------------------------------------------------
+    // PRIVATE METHODS
+    // ------------------------------------------------------------------------------------
+
+    private static String hashViaPureJava(String algorithm, String value) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance(algorithm);
+        md.update(value.getBytes(UTF_8));
+        byte[] digest = md.digest();
+        StringBuilder sb = new StringBuilder();
+        for (byte b : digest) {
+            sb.append(String.format("%02x", b & 0xff));
+        }
+        return sb.toString();
     }
 }
