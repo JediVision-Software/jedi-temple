@@ -17,6 +17,7 @@ public class Hash {
     private static final String MD5 = "MD5";
     private static final String SHA1 = "SHA-1";
     private static final String SHA256 = "SHA-256";
+    private static final String SHA384 = "SHA-384";
 
     public static String md5ViaPureJava(String value) throws NoSuchAlgorithmException {
         LOGGER.debug("Hashing {} with md5 hashing algorithm via pure Java", value);
@@ -46,6 +47,11 @@ public class Hash {
     public static String sha256ViaCommonsCodec(String value) {
         LOGGER.debug("Hashing {} with sha-256 hashing algorithm via commons codec", value);
         return DigestUtils.sha256Hex(value);
+    }
+
+    public static String sha384ViaPureJava(String value) throws NoSuchAlgorithmException {
+        LOGGER.debug("Hashing {} with sha-384 hashing algorithm via pure Java", value);
+        return hashViaPureJava(SHA384, value);
     }
 
     public static String sha384ViaCommonsCodec(String value) {

@@ -74,6 +74,15 @@ public class HashTest {
     }
 
     @Test
+    public void sha384ViaPureJavaTest() throws NoSuchAlgorithmException {
+        // Act
+        String encodedValue = Hash.sha384ViaPureJava(GLOBAL_VALUE);
+
+        // Assert
+        assertThat(encodedValue, equalTo(GLOBAL_ENCODED_SHA_384_VALUE));
+    }
+
+    @Test
     public void sha384ViaCommonsCodecTest() throws NoSuchAlgorithmException {
         // Act
         String encodedValue = Hash.sha384ViaCommonsCodec(GLOBAL_VALUE);
