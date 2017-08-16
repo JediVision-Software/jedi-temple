@@ -92,6 +92,15 @@ public class HashTest {
     }
 
     @Test
+    public void sha512ViaPureJavaTest() throws NoSuchAlgorithmException {
+        // Act
+        String encodedValue = Hash.sha512ViaPureJava(GLOBAL_VALUE);
+
+        // Assert
+        assertThat(encodedValue, equalTo(GLOBAL_ENCODED_SHA_512_VALUE));
+    }
+
+    @Test
     public void sha512ViaCommonsCodecTest() throws NoSuchAlgorithmException {
         // Act
         String encodedValue = Hash.sha512ViaCommonsCodec(GLOBAL_VALUE);
