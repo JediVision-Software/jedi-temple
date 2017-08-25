@@ -51,8 +51,6 @@ Data or message encrypted using the private key can **only** be decrypted using 
 
 Hashing is the process of storing the text password as encrypted sequence of characters, with some hash one-way function.
 
-**Storing the text password with hashing is most dangerous thing for application security today.**
-
 #### Examples of digests:
 
 * MD5 (is considered broken)
