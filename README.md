@@ -25,3 +25,4 @@ Welcome to JDV Java Temple — Proofs of Concepts repository. May the force be w
 * Spring Boot REST Basic Authentication PoC — HTTP basic in-memory authentication
 * Spring Cloud PoC - Microservice architecture: Eureka, Ribbon, Hystix, Zuul + Docker-Compose etc.
 * to be continued...
+
