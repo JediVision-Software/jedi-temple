@@ -1,0 +1,74 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BasicAuth Security",
+		"_postman_id": "76f40afd-3ddd-2dec-c61c-22d85c22bb15",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Public API ",
+			"request": {
+				"url": "http://localhost:8080/api/public",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "PermitAll"
+			},
+			"response": []
+		},
+		{
+			"name": "Private API",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "user2",
+						"password": "user2",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://localhost:8080/api/private",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjI6dXNlcjI=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Permit: User + Admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Only Admin API",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "admin",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://localhost:8080/api/onlyAdmin",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Permin: Only Admin"
+			},
+			"response": []
+		}
+	]
+}

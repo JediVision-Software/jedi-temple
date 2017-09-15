@@ -18,9 +18,9 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/private").hasRole(USER_ROLE)
                 .antMatchers("/api/onlyAdmin").hasRole(ADMIN_ROLE)
                 .and()
-                .httpBasic()
+                    .httpBasic()
                 .and()
-                .logout().permitAll();
+                    .csrf().disable();
     }
 
     @Autowired
