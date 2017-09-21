@@ -1,6 +1,6 @@
 # cryptology-poc
 
-Cryptology PoC - encoding, encryption, hashing, obfuscation algorithms skeletons, usages, best practices. 
+Cryptology PoC - encoding, encryption, hashing, obfuscation algorithms skeletons, usages, best practices
 	
 ## Encoding
 

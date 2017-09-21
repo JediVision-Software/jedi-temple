@@ -1,6 +1,6 @@
 # authentication-and-security
 
-Authentication & Security - security, authentication, authorization, best practices etc.
+Authentication & Security - security, authentication, authorization, best practices
 
 - [Theory](#theory)
     - [TLS](#tls)

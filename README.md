@@ -8,8 +8,8 @@ Welcome to JDV Java Temple — Proofs of Concepts repository. May the force be w
 # Proofs of Concepts:
 
 * Apache Camel — ActiveMQ/RabbitMQ, TCP/HTTP, IMAP/POP3/SMTP, Timer, ElasticSearch, Spring integration
-* Authentication & Security — types, authorization, best practices etc.
-* Cryptology - ... algorithms skeleton etc. 
+* Authentication & Security — types, authorization, best practices
+* Cryptology - encoding, encryption, hashing, obfuscation algorithms skeletons, usages, best practices
 * DropWizard — One-To-Many relation with unit tests for DAO, service, resource layers
 * Spring Boot Cassandra Cluster PoC — Cassandra Cluster + Nginx (RoundRobin three Spring Boot apps)
 * Spring Boot Cross Origin PoC — Cross Origin via annotation 
@@ -23,6 +23,6 @@ Welcome to JDV Java Temple — Proofs of Concepts repository. May the force be w
 * Spring Boot Reactive — Spring Boot Reactive: simple Flux, Mono usage
 * Spring Boot Redis — Redis key-value storage (Java objects)
 * Spring Boot REST Basic Authentication PoC — HTTP basic in-memory authentication
-* Spring Cloud PoC - Microservice architecture: Eureka, Ribbon, Hystix, Zuul + Docker-Compose etc.
+* Spring Cloud PoC - Microservice architecture: Eureka, Ribbon, Hystix, Zuul + Docker-Compose
 * to be continued...
 
