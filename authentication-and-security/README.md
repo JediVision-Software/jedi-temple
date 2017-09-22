@@ -96,6 +96,10 @@ _Must know_:
 - HTTPS is required when BasicAuth is used as authentication method
 - Password is sent with each request: **IMPORTANT: Giant attack possibility**
 
+_Source (Java, Spring-based app):_
+
+https://github.com/jedivision-software/jdv-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
+
 ## Digest Auth
 
 to be continued...
