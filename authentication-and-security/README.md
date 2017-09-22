@@ -89,7 +89,7 @@ Basic Auth (HTTP Basic Authentication) - method for an HTTP user agent to provid
 
 "Authenticated" requests must contain `Authorization` header. 
 
-`Authorization: Basic YWRtaW46YWRtaW4=` is Base64 encoded admin / admin credentials (username: admin, password: admin)
+`Authorization: Basic YWRtaW46YWRtaW4=` is Base64 encoded credentials (username: admin, password: admin)
 
 _Must know_: 
 - Credentials are Base64 encoded. So it can be easily decoded. **IMPORTANT: Not encrypted**
