@@ -88,12 +88,13 @@ Different authentication methods / approaches / technologies
 Basic Auth (HTTP Basic Authentication) - method for an HTTP user agent to provide a user name and password when making a request. Solution claims to be simple and supported in browsers.
 
 "Authenticated" requests must contain `Authorization` header. 
-`Authorization: Basic YWRtaW46YWRtaW4=` is Base64 admin / admin credentials (username: admin, password: admin)
+
+`Authorization: Basic YWRtaW46YWRtaW4=` is Base64 encoded admin / admin credentials (username: admin, password: admin)
 
 _Must know_: 
-- Credentials are Base64 encoded. So it can be easily decoded. **IMPORTANT: NOT ENCRYPTED!**
+- Credentials are Base64 encoded. So it can be easily decoded. **IMPORTANT: Not encrypted**
 - HTTPS is required when BasicAuth is used as authentication method
-- Password is sent with each request: **Giant attack possibility**
+- Password is sent with each request: **IMPORTANT: Giant attack possibility**
 
 ## Digest Auth
 
