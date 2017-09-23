@@ -87,7 +87,9 @@ HTTPS = HTTP + TLS (SSL). Originally designed for payment system and transaction
 
 Usually application / server identify you by some session identifier. 
 In Java world - [JSESSIONID](https://en.wikipedia.org/wiki/Session_ID)
+
 In PHP world - [PHPSESSIONID](https://en.wikipedia.org/wiki/Session_ID)
+
 In C# world - [ASPSESSIONID](https://en.wikipedia.org/wiki/Session_ID)
 
 If you manually delete this **session** identifier on next request you will be automatically logout-ed to your `home` page
