@@ -8,6 +8,7 @@ Authentication & Security - security, authentication, authorization, best practi
     - [HTTP 1.0 vs. HTTP 2.0](#http-10-vs-http-20)
     - [HTTPS](#https)
 	- [Authentication vs. Authorization](#authentication-authorization)
+	- [Stateless HTTP + Cookie](#stateless-http--cookie)
 - [Methods](#methods)
 	- [Basic Auth](#basic-auth)
 
@@ -78,6 +79,18 @@ HTTPS = HTTP + TLS (SSL). Originally designed for payment system and transaction
 **Authentication:** process to understand WHO you are. Typically based on credentials: username / password
 
 **Authorization:** process to understand WHAT you are ALLOWED. Typically gaining access to resource based on permissions
+
+## Stateless HTTP + [Cookie](https://en.wikipedia.org/wiki/HTTP_cookie)
+
+> HTTP - is stateless
+
+> Cookie - is stateful
+
+Cookie - (key, value) pair is stored in browser. Browser store cookies in **file system**
+
+HTTP authentication is required on each page, so application / server can identify you as user. Simple way to understand is any `token`-based authentication. 
+
+Cookie on other hand can store (key, value) pair in browser, so there will be no reason to authenticate yourself on each page. Simple way to understand is [JSESSIONID](https://en.wikipedia.org/wiki/Session_ID).
 
 # Methods
 
