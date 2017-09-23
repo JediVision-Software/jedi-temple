@@ -9,6 +9,7 @@ Authentication & Security - security, authentication, authorization, best practi
     - [HTTPS](#https)
 	- [Authentication vs. Authorization](#authentication-authorization)
 	- [Stateless HTTP + Cookie](#stateless-http--cookie)
+	- [Session](#session)
 - [Methods](#methods)
 	- [Basic Auth](#basic-auth)
 
@@ -91,6 +92,18 @@ Cookie - (key, value) pair is stored in browser. Browser store cookies in **file
 HTTP authentication is required on each page, so application / server can identify you as user. Simple way to understand is any `token`-based authentication. 
 
 Cookie on other hand can store (key, value) pair in browser, so there will be no reason to authenticate yourself on each page. Simple way to understand is [JSESSIONID](https://en.wikipedia.org/wiki/Session_ID).
+
+## [Session](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP_session)
+
+> HTTP Session - sequence of network request-response transactions
+
+Usually application / server identify you by some session identifier. In Java world - JSESSIONID, in PHP world - PHPSESSIONID, in C# - ASPSESSIONID
+
+If you manually delete this **session** identifier on next request you will be automatically logout-ed to your `home` page
+
+_More_:
+- [Session in Computer Science](#https://en.wikipedia.org/wiki/Session_(computer_science))
+- [Session Management - Cheat Sheet](#https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)
 
 # Methods
 
