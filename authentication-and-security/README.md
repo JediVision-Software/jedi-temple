@@ -12,6 +12,9 @@ Authentication & Security - security, authentication, authorization, best practi
 	- [Stateless HTTP + Cookie](#stateless-http--cookie)
 - [Methods](#methods)
 	- [Basic Auth](#basic-auth)
+	- [Digest Auth](#digest-auth)
+	- [Session-Based Auth](#session-based-auth)
+	- [Token-Based Auth](#token-based-auth)
 
 # Theory
 
@@ -137,5 +140,16 @@ https://github.com/jedivision-software/jdv-temple-java/tree/master/authenticatio
 to be continued...
 
 ## Session-Based Auth
+
+Session-Based Authentication is tightly tied up with [Session_ID](https://en.wikipedia.org/wiki/Session_ID). 
+
+Key understand lies in mapping between **user's login / authentication** and associated **cookie** (generally SessionID). Lets jump to Java world to simplify thought.
+
+In Java world: application is deployed to Apache Tomcat. Apache Tomcat generate JSESSIONID and store mapping between JSESSIONID and user (username: admin, password: admin). Apache Tomcat stores this mapping in memory. 
+In more complex cases you can store this _session mapping_ to database like MySQL, Mongodb or to any (key, value) storage like Redis.
+
+## Token-Based Auth
+
+to be continued...
 
 
