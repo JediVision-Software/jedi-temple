@@ -86,6 +86,7 @@ HTTPS = HTTP + TLS (SSL). Originally designed for payment system and transaction
 > HTTP Session - sequence of network request-response transactions
 
 Usually application / server identify you by some session identifier. 
+
 In Java world - [JSESSIONID](https://en.wikipedia.org/wiki/Session_ID)
 
 In PHP world - [PHPSESSIONID](https://en.wikipedia.org/wiki/Session_ID)
@@ -131,8 +132,10 @@ _Source (Java, Spring-based app):_
 
 https://github.com/jedivision-software/jdv-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
 
-## Digest Auth
+## [Digest Auth](https://en.wikipedia.org/wiki/Digest_access_authentication)
 
 to be continued...
+
+## Session-Based Auth
 
 
