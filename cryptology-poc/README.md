@@ -71,6 +71,27 @@ Obfuscation process provide encrypting some or all of the code, renaming useful 
 A tool called an obfuscator can convert source code into a program that works the same way, 
 but is much harder to read and understand.
 
+#### Obfuscation techniques
+
+* **Layout obfuscations** modify the layout structure of the program by two basic methods: 
+    - renaming identifiers 
+    - removing debugging information
+    
+    Most layout obfuscations cannot be undone because they use one-way functions such as changing identifiers by random symbols 
+    and removing comments, unused methods, and debugging information. Though layout obfuscations cannot prevent reverse engineers to understand 
+    the program by observing the obfuscated code, they at least consume the cost of reverse engineering. 
+    Layout obfuscations are the most well studied and widely used in code obfuscation.
+
+* **Control obfuscations** change the control flow of the program. The trick is simple: for a method A() obfuscator creates 
+an additional method A_bug() and an "if" selector, *if (PREDICATE) then A_bug(); else A();*. 
+The PREDICATE is designed on-the-fly in that way so it is always false (but it's made so it's hard to conclude that fact), 
+and the A() method is always selected instead of a buggy copy A_bug().
+
+* **Data obfuscations** break the data structures used in the program and encrypt literals. 
+This method includes modifying inheritance relations, restructuring arrays, etc. 
+Data obfuscations thoroughly change the data structure of a program. They make the obfuscated codes so complicated 
+that it is impossible to recreate the original source code.
+
 #### Obfuscators examples:
 
 * ProGuard
