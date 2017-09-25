@@ -14,7 +14,9 @@ Authentication & Security - security, authentication, authorization, best practi
 	- [Basic Auth](#basic-auth)
 	- [Digest Auth](#digest-auth)
 	- [Session-Based Auth](#session-based-auth)
-	- [Token-Based Auth](#token-based-auth)
+	- [JWT-Based Auth](#jwt-based-auth)
+	- [OAuth-Based Auth](#oauth-based-auth)
+- [Best Practices](#best-practices)
 
 # Theory
 
@@ -137,7 +139,7 @@ https://github.com/jedivision-software/jdv-temple-java/tree/master/authenticatio
 
 ## [Digest Auth](https://en.wikipedia.org/wiki/Digest_access_authentication)
 
-to be continued...
+Under development...
 
 ## Session-Based Auth
 
@@ -148,8 +150,18 @@ Key understand lies in mapping between **user's login / authentication** and ass
 In Java world: application is deployed to Apache Tomcat. Apache Tomcat generate JSESSIONID and store mapping between JSESSIONID and user (username: admin, password: admin). Apache Tomcat stores this mapping in memory. 
 In more complex cases you can store this _session mapping_ to database like MySQL, Mongodb or to any (key, value) storage like Redis.
 
-## Token-Based Auth
+## [JWT-Based Auth](https://en.wikipedia.org/wiki/JSON_Web_Token)
 
-to be continued...
+Under development...
 
+## [OAuth-Based Auth](https://en.wikipedia.org/wiki/OAuth)
 
+Under development...
+
+# Best Practices
+
+- Use HTTPS
+- Don't store password as plain text in database / storage / file system
+- Don't implement _in-house_ hashing / encryption algorithms. Please use well-know algorithms 
+- Don't implement _in-house_ authentication methods. Please use well-know methods 
+- Use security even in initial stages of application development
