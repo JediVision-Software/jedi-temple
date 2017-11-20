@@ -1,8 +1,8 @@
-# jdv-temple-java
-Welcome to JDV Java Temple — Proofs of Concepts repository. May the force be with you.
+# forcelate-temple-java
+Welcome to Forcelate Java Temple — Proofs of Concepts repository. May the force be with you.
 
 <p align="center">
-	<img src="https://github.com/jedivision-software/jdv-temple-java/blob/master/img/jedi-temple.jpg?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/img/jedi-temple.jpg?raw=true" alt=""/>
 </p>
 
 # Proofs of Concepts:

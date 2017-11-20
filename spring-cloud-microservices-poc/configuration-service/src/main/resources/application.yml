@@ -10,7 +10,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/JediVision-Software/jedi-temple.git
+          uri: https://github.com/forcelate/forcelate-java-temple.git
           searchPaths: /spring-cloud-microservices-poc
           # username: <PLEASE UPDATE>
           # password: <PLEASE UPDATE>
@@ -39,7 +39,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/JediVision-Software/jedi-temple.git
+          uri: https://github.com/forcelate/forcelate-java-temple.git
           searchPaths: /spring-cloud-microservices-poc
           # username: <PLEASE UPDATE>
           # password: <PLEASE UPDATE>

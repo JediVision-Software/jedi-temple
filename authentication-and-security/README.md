@@ -135,7 +135,7 @@ _Must know_:
 
 _Source (Java, Spring-based app):_
 
-https://github.com/jedivision-software/jdv-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
+https://github.com/forcelate/forcelate-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
 
 ## [Digest Auth](https://en.wikipedia.org/wiki/Digest_access_authentication)
 
