@@ -1,20 +1,17 @@
 package com.jdv.resource;
 
-import com.jdv.Application;
 import com.jdv.domain.Message;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
+@Slf4j
 @RestController
 @RequestMapping("/api")
 public class MessageResource {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
-
     @GetMapping("/public")
     public Message permitAll() {
         LOGGER.debug("Spring BasicAuth Security: Public API");
