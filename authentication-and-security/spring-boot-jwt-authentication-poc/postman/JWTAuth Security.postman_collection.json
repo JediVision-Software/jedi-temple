@@ -1,0 +1,60 @@
+{
+	"variables": [],
+	"info": {
+		"name": "JWTAuth Security",
+		"_postman_id": "1f804e54-4717-4340-9d8b-93415ee47ac9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"name\": \"Forcelate Dev\",\n \"email\": \"dev@gmail.com\",\n \"password\": \"password\"\n}"
+				},
+				"url": "http://localhost:8080/registration",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Public API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "http://localhost:8080/api/public",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Private API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkQXQiOjE1MTUwNDU4MTEsInVzZXJJZCI6ImNhNjIwYTM4LTM0M2EtNDRkZi1iNTg5LTIyMzBiYTNhMTM4OCJ9.MZ6XvGbhjDHrqef7oeri3dmn1-j9XFI0nyUT90yPRlQTexQmVkZSLm2vdetg27hGuJcfqejHFWqTxRLC9LtAMA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"name\": \"Pavlo Pastushok\",\n \"email\": \"pavlo@gmail.com\",\n \"password\": \"password\"\n}"
+				},
+				"url": "http://localhost:8080/api/private",
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
