@@ -152,7 +152,19 @@ In more complex cases you can store this _session mapping_ to database like MySQ
 
 ## [JWT-Based Auth](https://en.wikipedia.org/wiki/JSON_Web_Token)
 
-Under development...
+JWT Auth (JSON Web Tokens Authentication) - Choosing JWT to secure your API endpoints is a nice choice because it ensures a stateless exchange of tokens between the client and the server, is compact and URL-safe. Storing claims (user roles and permissions) in the token itself creates huge benefits in distributed system architectures where the server that issues the request has no access to the authentication data source. 
+
+"Authenticated" requests must contain `Authorization` header. 
+
+_Must know_: 
+- JSON Web Tokens consist of three parts separated by dots (.), which are: **Header**, **Payload**, **Signature**
+- **Header** - The header typically consists of two parts: the type of the token, which is JWT, and the hashing algorithm being used, such as HMAC, SHA256 or RSA.
+- **Payload** - which contains the claims. Claims are statements about an entity (typically, the user) and additional metadata.
+- **Signature** - To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
+
+_Source (Java, Spring-based app):_
+
+https://github.com/forcelate/forcelate-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
 
 ## [OAuth-Based Auth](https://en.wikipedia.org/wiki/OAuth)
 
