@@ -1,0 +1,186 @@
+{
+	"info": {
+		"name": "DigestAuth Security",
+		"_postman_id": "1c915b15-fb8b-c857-765c-4c30d60a8404",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Public API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/public",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"public"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Private API",
+			"request": {
+				"auth": {
+					"type": "digest",
+					"digest": [
+						{
+							"key": "algorithm",
+							"value": "MD5",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user1",
+							"type": "string"
+						},
+						{
+							"key": "realm",
+							"value": "DigestRealm",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "user1",
+							"type": "string"
+						},
+						{
+							"key": "nonce",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "nonceCount",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "clientNonce",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "opaque",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "qop",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "disableRetryRequest",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/private",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"private"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Only Admin API",
+			"request": {
+				"auth": {
+					"type": "digest",
+					"digest": [
+						{
+							"key": "algorithm",
+							"value": "MD5",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "realm",
+							"value": "DigestRealm",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "nonce",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "nonceCount",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "clientNonce",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "opaque",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "qop",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "disableRetryRequest",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/onlyAdmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"onlyAdmin"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
