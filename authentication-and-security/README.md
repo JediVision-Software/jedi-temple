@@ -149,7 +149,7 @@ The digest authentication process is as follows:
 - A client requests access to a website with a **username** and a **password**. 
 - The server responds with a digest session key, a nonce and 401 authentication request. 
 - The client answers with a response array with a composition of (**username**:**realm**:**password**), which is **encrypted using MD5**. 
-- The server employs the **username** and **realm** to look up the **password** in the database, then uses that password to create a MD5 key using (**username**:**realm***:**password_from_database**). 
+- The server employs the **username** and **realm** to look up the **password** in the database, then uses that password to create a MD5 key using (**username**:**realm**:**password_from_database**). 
 - Then, the server compares its generated MD5 key to the client's submitted MD5 key. If it matches, the client is authenticated. If not, the client is denied access.
 
 _Source (Java, Spring-based app):_
