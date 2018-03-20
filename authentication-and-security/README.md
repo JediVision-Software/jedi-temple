@@ -139,7 +139,22 @@ https://github.com/forcelate/forcelate-temple-java/tree/master/authentication-an
 
 ## [Digest Auth](https://en.wikipedia.org/wiki/Digest_access_authentication)
 
-Under development...
+Digest authentication is a method of authentication in which a request from a potential user is received by a network server and then sent to a domain controller.
+The domain controller sends a special key, called a digest session key, to the server that received the original request.
+The user must then produce a response, which is encrypted and transmitted to the server.
+If the user's response is of the correct form, the server grants the user access to the network, web site or requested resources for a single session.
+
+The digest authentication process is as follows:
+
+- A client requests access to a website with a **username** and a **password**. 
+- The server responds with a digest session key, a nonce and 401 authentication request. 
+- The client answers with a response array with a composition of (**username**:**realm**:**password**), which is **encrypted using MD5**. 
+- The server employs the **username** and **realm** to look up the **password** in the database, then uses that password to create a MD5 key using (**username**:**realm***:**password_from_database**). 
+- Then, the server compares its generated MD5 key to the client's submitted MD5 key. If it matches, the client is authenticated. If not, the client is denied access.
+
+_Source (Java, Spring-based app):_
+
+https://github.com/forcelate/forcelate-temple-java/tree/master/authentication-and-security/spring-boot-digest-authentication-poc
 
 ## Session-Based Auth
 
