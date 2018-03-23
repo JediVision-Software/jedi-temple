@@ -11,6 +11,7 @@ Welcome to Forcelate Java Temple — Proofs of Concepts repository. May the forc
 * Authentication & Security — types, authorization, best practices
 * Cryptology - encoding, encryption, hashing, obfuscation algorithms skeletons, usages, best practices
 * DropWizard — One-To-Many relation with unit tests for DAO, service, resource layers
+* GraphQL - Spring Boot as backend API, Vue.js as frontend (SPA)
 * Spring Boot Cassandra Cluster PoC — Cassandra Cluster + Nginx (RoundRobin three Spring Boot apps)
 * Spring Boot Cross Origin PoC — Cross Origin via annotation 
 * Spring Boot ElasticSearch — "One-To-Many" document relation; ElasticSearch index, search API
