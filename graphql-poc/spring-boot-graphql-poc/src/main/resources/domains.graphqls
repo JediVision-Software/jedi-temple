@@ -3,13 +3,13 @@ schema {
 }
 
 type Query {
-    users: [User]
     user(id: Long): User
-    book(id: Int): Book
+    users: [User]
+    book(id: Long): Book
 }
 
 type User {
-    id: String
+    id: Long
     username: String
     age: Int
     rank: Int
@@ -17,7 +17,8 @@ type User {
 }
 
 type Book {
-   id: Int
+   id: Long
    title: String
    author: String
+   user: User
 }

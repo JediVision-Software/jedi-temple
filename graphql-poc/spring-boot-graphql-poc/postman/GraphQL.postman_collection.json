@@ -12,7 +12,53 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\tuser(id: 1) {\n\t\tusername,\n\t\trank\n\t}\n}"
+					"raw": "{\n\tuser(id: 1) {\n\t\tusername,\n\t\trank,\n\t\tbooks {\n\t\t\tid,\n\t\t\ttitle,\n\t\t\tauthor\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8484/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8484",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GraphQL - Users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\tusers {\n\t\tusername,\n\t\tage,\n\t\tbooks {\n\t\t\ttitle\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8484/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8484",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GraphQL - Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\tbook(id: 1) {\n\t\tid,\n\t\ttitle,\n\t\tauthor,\n\t\tuser {\n\t\t\tid,\n\t\t\tusername\n\t\t}\n\t}\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8484/query",

@@ -1,6 +1,7 @@
 package com.forcelate.fetchers;
 
 import com.forcelate.db.Db;
+import com.forcelate.domain.Book;
 import com.forcelate.domain.User;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
@@ -10,10 +11,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+import static com.forcelate.fetchers.Fields.USER_ID_FIELD;
+
 @Slf4j
 @Service
 public class UserDataFetcher implements DataFetcher<User> {
-    private static final String USER_ID_FIELD = "id";
 
     private final Db db;
 
@@ -25,7 +27,15 @@ public class UserDataFetcher implements DataFetcher<User> {
     @Override
     public User get(DataFetchingEnvironment environment) {
         Map<String, Object> arguments = environment.getArguments();
-        Long userId = Long.valueOf(String.valueOf(arguments.get(USER_ID_FIELD)));
+
+        System.out.println("====");
+        System.out.println(arguments);
+        System.out.println("====");
+        Book source = environment.getSource();
+        System.out.println(source);
+        System.out.println("====");
+
+        Long userId = Long.parseLong(String.valueOf(arguments.get(USER_ID_FIELD)));
         LOGGER.debug("Fetching user by id = {}", userId);
         return db.findUserById(userId);
     }

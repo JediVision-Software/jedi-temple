@@ -1,6 +1,6 @@
 package com.forcelate.services;
 
-import com.forcelate.fetchers.UserDataFetcher;
+import com.forcelate.fetchers.*;
 import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
@@ -24,13 +24,25 @@ public class GraphQLService {
     // GraphQL
     private final Resource graphqlsResource;
     // Fetchers
+    private final BookDataFetcher bookDataFetcher;
+    private final BooksNestedDataFetcher booksNestedDataFetcher;
     private final UserDataFetcher userDataFetcher;
+    private final UserNestedDataFetcher userNestedDataFetcher;
+    private final UsersDataFetcher usersDataFetcher;
 
     @Autowired
     public GraphQLService(@Value("classpath:domains.graphqls") Resource graphqlsResource,
-                          UserDataFetcher userDataFetcher) {
+                          BookDataFetcher bookDataFetcher,
+                          BooksNestedDataFetcher booksNestedDataFetcher,
+                          UserDataFetcher userDataFetcher,
+                          UserNestedDataFetcher userNestedDataFetcher,
+                          UsersDataFetcher usersDataFetcher) {
         this.graphqlsResource = graphqlsResource;
+        this.bookDataFetcher = bookDataFetcher;
+        this.booksNestedDataFetcher = booksNestedDataFetcher;
         this.userDataFetcher = userDataFetcher;
+        this.userNestedDataFetcher = userNestedDataFetcher;
+        this.usersDataFetcher = usersDataFetcher;
     }
 
     public GraphQL getGraphQL() throws IOException {
@@ -44,7 +56,16 @@ public class GraphQLService {
     private RuntimeWiring getRuntimeWiring() {
         return newRuntimeWiring()
                 .type("Query", wiring -> wiring
-                        .dataFetcher("user", userDataFetcher))
+                        .dataFetcher("user", userDataFetcher)
+                        .dataFetcher("users", usersDataFetcher)
+                        .dataFetcher("book", bookDataFetcher)
+                )
+                .type("User", wiring -> wiring
+                        .dataFetcher("books", booksNestedDataFetcher)
+                )
+                .type("Book", wiring -> wiring
+                        .dataFetcher("user", userNestedDataFetcher)
+                )
                 .build();
     }
 }
