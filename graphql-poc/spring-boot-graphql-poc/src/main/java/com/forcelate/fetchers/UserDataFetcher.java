@@ -1,7 +1,6 @@
 package com.forcelate.fetchers;
 
 import com.forcelate.db.Db;
-import com.forcelate.domain.Book;
 import com.forcelate.domain.User;
 import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;

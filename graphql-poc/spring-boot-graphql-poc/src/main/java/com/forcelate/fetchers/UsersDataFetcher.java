@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
-
-import static com.forcelate.fetchers.Fields.USER_ID_FIELD;
 
 @Slf4j
 @Service
