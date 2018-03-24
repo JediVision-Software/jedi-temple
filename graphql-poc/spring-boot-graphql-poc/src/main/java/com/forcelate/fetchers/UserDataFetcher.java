@@ -27,14 +27,6 @@ public class UserDataFetcher implements DataFetcher<User> {
     @Override
     public User get(DataFetchingEnvironment environment) {
         Map<String, Object> arguments = environment.getArguments();
-
-        System.out.println("====");
-        System.out.println(arguments);
-        System.out.println("====");
-        Book source = environment.getSource();
-        System.out.println(source);
-        System.out.println("====");
-
         Long userId = Long.parseLong(String.valueOf(arguments.get(USER_ID_FIELD)));
         LOGGER.debug("Fetching user by id = {}", userId);
         return db.findUserById(userId);
