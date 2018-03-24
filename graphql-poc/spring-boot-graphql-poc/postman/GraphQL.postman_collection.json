@@ -1,0 +1,32 @@
+{
+	"info": {
+		"_postman_id": "8506459a-3815-493a-8d1e-74d6819e4541",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GraphQL - User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\tuser(id: 1) {\n\t\tusername,\n\t\trank\n\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8484/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8484",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

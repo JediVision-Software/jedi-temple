@@ -18,6 +18,8 @@
         <!-- environment -->
         <java.version>1.8</java.version>
         <!-- dependencies -->
+        <graphql.starter.version>4.0.0</graphql.starter.version>
+        <graphql.tools.version>4.3.0</graphql.tools.version>
         <lombok.version>1.16.18</lombok.version>
          <!-- plugins -->
         <plugin.maven.compiler.version>3.6.2</plugin.maven.compiler.version>
@@ -35,6 +37,17 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- GrapQL -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <version>${graphql.starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>${}</version>
         </dependency>
     </dependencies>
 

@@ -1,0 +1,23 @@
+schema {
+    query: Query
+}
+
+type Query {
+    users: [User]
+    user(id: Long): User
+    book(id: Int): Book
+}
+
+type User {
+    id: String
+    username: String
+    age: Int
+    rank: Int
+    books: [Book]
+}
+
+type Book {
+   id: Int
+   title: String
+   author: String
+}
