@@ -4,6 +4,21 @@ server:
 
 # Application Configuration
 appConfigs:
+  oauth:
+    clientId: client
+    clientSecret: secret
+    grandTypes:
+      - password
+      - authorization_code
+      - refresh_token
+      - implicit
+    scopes:
+      - read
+      - write
+      - trust
+    accessTokenValiditySeconds: 600
+    refreshTokenValiditySeconds: 1200
+    resourceId: resource_id
   cors:
     enabled: false
     pathPattern: /api/**

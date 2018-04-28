@@ -12,9 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableWebMvc
 public class ApplicationMVC extends WebMvcConfigurerAdapter {
+	private ApplicationProperties applicationProperties;
 
     @Autowired
-    private ApplicationProperties applicationProperties;
+    public ApplicationMVC (ApplicationProperties applicationProperties) {
+    	this.applicationProperties = applicationProperties;
+	}
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
