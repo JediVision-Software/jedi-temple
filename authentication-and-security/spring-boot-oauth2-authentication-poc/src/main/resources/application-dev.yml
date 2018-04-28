@@ -1,0 +1,20 @@
+# Server
+server:
+  port: 8080
+
+# Application Configuration
+appConfigs:
+  cors:
+    enabled: false
+    pathPattern: /api/**
+    allowedOrigins:
+      - http://localhost:8686
+      - http://localhost:8787
+    allowedMethods:
+      - DELETE
+      - GET
+      - POST
+      - PUT
+    exposedHeaders:
+      - Authorization
+    allowCredentials: true
