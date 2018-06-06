@@ -2,6 +2,22 @@
 server:
   port: 8080
 
+# Database
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    platform: h2
+    initialize: true
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+
 # Application Configuration
 appConfigs:
   oauth:
