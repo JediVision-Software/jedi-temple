@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: ForcelateKeycloakSSO
+  resource: keycloak-sso-poc
+  public-client: true
