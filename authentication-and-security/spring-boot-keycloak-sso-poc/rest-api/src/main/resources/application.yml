@@ -19,14 +19,14 @@ appConfigs:
 
 keycloak:
   auth-server-url: http://localhost:8080/auth
-  realm-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl5ee06b9Jx7E42qppgJNWHv7YmZlEyN58ZReUG220GXn5h+C1CWTapZ/DOsJgo24uzWt3o+ekN1NfhPhxhYYiIbn/hTdrmq+lpulsqK7KvipAfq3zNkAYYdEQ93sEloRAEHsRR68SVQFTNJ+1q66hIfiTqrQWdVyjtNi0mhCzlo66tpEQTDoh80m9jHIIkVJgmusS6CkoMNNDWUEv7n0TKL955EkdZT0THcG5unLAbRD78tKjdGcw2dJLWFaT/w+Zxsm3dHpJKKfdNe/zJg6sIv7S2Xa5dcrZI1WUpHON8l7EZXrOJNszeJ16gaf8iWWqNsLKbTOwNGmhFKK2lHv9wIDAQAB
+  realm-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlMOW1/11bz5jcdZgimZes6jlgXWYMUxaPEIa8rYZWR9gWu4nIa3/2N7cuqJq7aAqTO3yPvBTR44VHkIlTVDPCnlfYFHPD4d82hArgeViVJoV7c1K4c0Zj7/M7ZMCi+OVrkMNqYbUODDiUZVcrXFLTFEcg3BVPTHI6PIKFhdgxZifK9TKxOq/pClQeNgl/v9jHTiOw3LTUDktqmY9wTrER1oAbDBRMMirymV1Hc5XwdIyD5UPwQ5ycxY1kZbEiiYMLRzVcQ2yulQoXq7fRddqJkM913gmambc4Kmcz4AINhSZe2ZJrpIVnhHE7HQ+7Su7EyXbzHgLxKkf7RzN7HSQQwIDAQAB
   realm: ForcelateKeycloakSSO
   resource: rest-api-app
   public-client: false
   bearer-only: true
   enable-basic-auth: false
   credentials:
-    secret: e1817a43-8abc-4af4-90f9-f77b415a37fd
+    secret: 3dd786db-ef7d-4ec1-a0d0-ec9bb0e59583
 
 logging:
   config: classpath:logback-dev.xml
