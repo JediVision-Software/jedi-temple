@@ -80,7 +80,7 @@ Awesome, user is created.
 After we have created our role we can create the clients for our application. We will need two clients. One for the frontend application and one for the REST backend.
 Let’s start by creating the frontend client. Click on the “Clients” link in the navigation and then use the “Create” button to create a new client.
 
-In this example we use "client-app" as client id.
+In this example we use "client-app" as client username.
 
 <p align="center">
 	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/forcelate-temple-java/authentication-and-security/spring-boot-keycloak-sso-poc/create_frontend_client.png?raw=true" alt=""/>
@@ -120,7 +120,7 @@ keycloak:
   resource: rest-api-app
   bearer-only: true
 ```
-For backend module configuration we also need Keycloak "realm publick key" and security credential secret.
+For backend module configuration we also need Keycloak "realm publick key" and "security credential secret".
 To get realm publick key, please press Realm Settings, Keys and then press "Public key" button in right side
 
 <p align="center">
@@ -135,7 +135,7 @@ keycloak:
   realm-key: MI.....
 ```
 
-To get security credential secret you need press Clients than select rest-api-app, press Credentials tab and copy secret
+To get security credential secret you need press Clients than select rest-api-app than press Credentials tab and copy secret
 
 <p align="center">
 	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/forcelate-temple-java/authentication-and-security/spring-boot-keycloak-sso-poc/get_credentials_secret.png?raw=true" alt=""/>
@@ -146,7 +146,7 @@ Now add this security credential secret in application.yml in rest-api module:
 keycloak:
   ...
   credentials:
-      secret: 3dz...
+      secret: 3dz.....
 ```
 Now the backend client is completely configured and can be used.
 
