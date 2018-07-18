@@ -16,3 +16,17 @@ appConfigs:
     exposedHeaders:
       - Authorization
     allowCredentials: true
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl5ee06b9Jx7E42qppgJNWHv7YmZlEyN58ZReUG220GXn5h+C1CWTapZ/DOsJgo24uzWt3o+ekN1NfhPhxhYYiIbn/hTdrmq+lpulsqK7KvipAfq3zNkAYYdEQ93sEloRAEHsRR68SVQFTNJ+1q66hIfiTqrQWdVyjtNi0mhCzlo66tpEQTDoh80m9jHIIkVJgmusS6CkoMNNDWUEv7n0TKL955EkdZT0THcG5unLAbRD78tKjdGcw2dJLWFaT/w+Zxsm3dHpJKKfdNe/zJg6sIv7S2Xa5dcrZI1WUpHON8l7EZXrOJNszeJ16gaf8iWWqNsLKbTOwNGmhFKK2lHv9wIDAQAB
+  realm: ForcelateKeycloakSSO
+  resource: rest-api-app
+  public-client: false
+  bearer-only: true
+  enable-basic-auth: false
+  credentials:
+    secret: e1817a43-8abc-4af4-90f9-f77b415a37fd
+
+logging:
+  config: classpath:logback-dev.xml

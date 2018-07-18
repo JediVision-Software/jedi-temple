@@ -4,5 +4,8 @@ server:
 keycloak:
   auth-server-url: http://localhost:8080/auth
   realm: ForcelateKeycloakSSO
-  resource: keycloak-sso-poc
+  resource: client-app
   public-client: true
+
+logging:
+  config: classpath:logback-dev.xml

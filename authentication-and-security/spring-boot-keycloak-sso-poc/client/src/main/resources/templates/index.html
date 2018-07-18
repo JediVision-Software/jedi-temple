@@ -1,12 +1,20 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Spring Boot KeyCloak SSO Example</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- styles -->
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
-    <h1>
-        <a href="/products">Products</a>
-    </h1>
+<img src="../static/img/Forcelate_logo_-09.jpg" th:src="@{/img/Forcelate_logo_-09.jpg}" class="header-img">
+<div>
+    <hr>
+    <h2>Spring Boot Keycloak SSO POC</h2>
+    <hr>
+</div>
+<h1>
+    <a href="/products">Show Products page</a>
+</h1>
 </body>
 </html>
