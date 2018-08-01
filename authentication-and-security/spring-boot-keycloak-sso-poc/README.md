@@ -5,7 +5,8 @@ Keycloak offers features such as:
 - Single-Sign-On (SSO);
 - OAuth 2.0 support;
 - Identity Brokering and Social Login;
-- User Federation, -Client Adapters;
+- User Federation, 
+- Client Adapters;
 - Admin Console;
 - Account Management Console;
 - All features you can see [here](https://www.keycloak.org/docs/4.1/server_admin/#features)
