@@ -1,0 +1,76 @@
+.header-img {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#products {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#products td, #products th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#products tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#products tr:hover {
+    background-color: #ddd;
+}
+
+#products th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.logout-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 85%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.logout-button {
+    background-color: white;
+    color: #4CAF50;
+    font-weight: bold;
+    border: 2px solid #4CAF50;
+}
+
+.logout-button:hover {
+    background-color: #4CAF50;
+    font-weight: bold;
+    color: white;
+}

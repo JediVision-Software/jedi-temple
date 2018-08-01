@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- styles -->
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<img src="../static/img/keycloak_with_spring_boot.jpg" th:src="@{/img/keycloak_with_spring_boot.jpg}"
+     class="header-img">
+<div id="container">
+    <table id="products">
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}">Text ...</td>
+            <td th:text="${product.title}">Text ...</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a href="/logout"><button class="logout-button">Logout</button></a>
+</div>
+</body>
+</html>

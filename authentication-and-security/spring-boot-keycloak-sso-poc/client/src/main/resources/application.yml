@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: ForcelateKeycloakSSO
+  resource: client-app
+  public-client: true
+
+logging:
+  config: classpath:logback-dev.xml

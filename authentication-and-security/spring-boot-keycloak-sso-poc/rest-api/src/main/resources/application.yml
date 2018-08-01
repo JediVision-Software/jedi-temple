@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+# Application Configuration
+appConfigs:
+  cors:
+    enabled: true
+    pathPattern: /api/**
+    allowedOrigins:
+      - http://localhost:8081
+    allowedMethods:
+      - DELETE
+      - GET
+      - POST
+      - PUT
+    exposedHeaders:
+      - Authorization
+    allowCredentials: true
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlMOW1/11bz5jcdZgimZes6jlgXWYMUxaPEIa8rYZWR9gWu4nIa3/2N7cuqJq7aAqTO3yPvBTR44VHkIlTVDPCnlfYFHPD4d82hArgeViVJoV7c1K4c0Zj7/M7ZMCi+OVrkMNqYbUODDiUZVcrXFLTFEcg3BVPTHI6PIKFhdgxZifK9TKxOq/pClQeNgl/v9jHTiOw3LTUDktqmY9wTrER1oAbDBRMMirymV1Hc5XwdIyD5UPwQ5ycxY1kZbEiiYMLRzVcQ2yulQoXq7fRddqJkM913gmambc4Kmcz4AINhSZe2ZJrpIVnhHE7HQ+7Su7EyXbzHgLxKkf7RzN7HSQQwIDAQAB
+  realm: ForcelateKeycloakSSO
+  resource: rest-api-app
+  public-client: false
+  bearer-only: true
+  enable-basic-auth: false
+  credentials:
+    secret: 3dd786db-ef7d-4ec1-a0d0-ec9bb0e59583
+
+logging:
+  config: classpath:logback-dev.xml
