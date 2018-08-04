@@ -1,4 +1,4 @@
-package com.jdv.domain;
+package com.forcelate.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

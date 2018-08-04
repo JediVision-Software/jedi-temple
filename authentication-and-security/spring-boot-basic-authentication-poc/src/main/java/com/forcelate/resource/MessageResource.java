@@ -1,6 +1,6 @@
-package com.jdv.resource;
+package com.forcelate.resource;
 
-import com.jdv.domain.Message;
+import com.forcelate.domain.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
