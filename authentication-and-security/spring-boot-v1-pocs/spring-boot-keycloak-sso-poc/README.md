@@ -28,7 +28,7 @@ By default Keycloak is running on localhost:8080, if you want to expose Keycloak
 Open a browser and visit [http://localhost:8080](http://localhost:8080). We’ll be redirected to [http://localhost:8080/auth](http://localhost:8080/auth) to create an administrative login:
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/create_admin_user.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/create_admin_user.png?raw=true" alt=""/>
 </p>
 
 We can now proceed to the [Administrative Console](http://localhost:8080/auth/admin/master/console/).
@@ -38,7 +38,7 @@ Navigate your mouse into the upper left upper corner to discover the “Create a
 For this example we are naming it "ForcelateKeycloakSSO"
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/ForcelateKeycloakSSO_realm.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/ForcelateKeycloakSSO_realm.png?raw=true" alt=""/>
 </p>
 
 Now you need to add your realm in two property files. Edit resources/application.yml in client and rest-api modules and change realm value:
@@ -53,7 +53,7 @@ keycloak:
 Click on the “Roles” link in the navigation and after that, click on the button “Add Role” at the right side of the screen. This will navigate you to the “Add Role” screen. Enter "user" as role name and click on “Save”.
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/create_role.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/create_role.png?raw=true" alt=""/>
 </p>
 
 You can edit security roles and all permissions in /configuration/ApplicationSecurity.class in both modules (client and rest-api)
@@ -66,12 +66,12 @@ Now we’ve got a role that can be assigned to users, but there are no users yet
 Press "Add user" and create new user. For example, I created user with username "test"
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/create_user.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/create_user.png?raw=true" alt=""/>
 </p>
 
 We can now go to the “Credentials” tab. For example, we’ll be setting the password “test”. Than we need navigate to the “Role Mappings” tab and assign the role “user” to your user ("test").
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/add_role_for_user.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/add_role_for_user.png?raw=true" alt=""/>
 </p>
 
 Awesome, user is created.
@@ -84,7 +84,7 @@ Let’s start by creating the frontend client. Click on the “Clients” link i
 In this example we use "client-app" as client username.
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/create_frontend_client.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/create_frontend_client.png?raw=true" alt=""/>
 </p>
 
 You will be navigated to the client settings. Use the Access Type public and the following URL and save the client:
@@ -111,7 +111,7 @@ Now the frontend client is completely configured and can be used.
 Lets create another client for the backend and name it "rest-api-app" and press "Save". You will be navigated to the client settings, you need select Access Type as bearer-only. This time configure the Access Type as bearer-only because the REST backend should only be called when a user has already logged in.
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/create_backend_client.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/create_backend_client.png?raw=true" alt=""/>
 </p>
 
 Edit application.yml in rest-api module and add your backend client username and Access Type:
@@ -125,7 +125,7 @@ For backend module configuration we also need Keycloak "realm publick key" and "
 To get realm publick key, please press Realm Settings, Keys and then press "Public key" button in right side
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/get_public_key.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/get_public_key.png?raw=true" alt=""/>
 </p>
 
 Now add this public key in application.yml in rest-api module:
@@ -139,7 +139,7 @@ keycloak:
 To get security credential secret you need press Clients than select rest-api-app than press Credentials tab and copy secret
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/get_credentials_secret.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/get_credentials_secret.png?raw=true" alt=""/>
 </p>
 
 Now add this security credential secret in application.yml in rest-api module:
@@ -163,5 +163,5 @@ mvn clean spring-boot:run
 Now you need run your browser and open [http://localhost:8081](http://localhost:8081). If everything is fine, you should see this page:
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-keycloak-sso-poc/img/main_page.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/authentication-and-security/spring-boot-v1-pocs/spring-boot-keycloak-sso-poc/img/main_page.png?raw=true" alt=""/>
 </p>
