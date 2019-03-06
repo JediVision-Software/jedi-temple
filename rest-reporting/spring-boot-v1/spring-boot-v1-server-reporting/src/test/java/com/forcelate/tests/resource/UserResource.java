@@ -7,9 +7,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 
+import java.io.IOException;
 
 import static com.forcelate.acceptance.domain.processing.HttpTypes.GET;
 import static com.forcelate.acceptance.domain.processing.HttpTypes.POST;
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
+import static org.hamcrest.Matchers.equalTo;
 
 @Slf4j
 public class UserResource extends AbstractResourceRunner {
@@ -19,19 +23,25 @@ public class UserResource extends AbstractResourceRunner {
 
     @CaseAnnotation(endpoint = "/api/user/{userId}", httpType = GET, description = "Find User by id")
     @Test
-    public void findOne() {
-        userUtils.findOne(1L);
-    }
+    public void findOne()  {
+        when()
+                .get("/api/user/" + 1L)
+        .then()
+                .statusCode(200)
+                .assertThat()
+                .body("age", equalTo(14));
 
-    @CaseAnnotation(endpoint = "/api/user", httpType = GET, description = "Find all users")
-    @Test
-    public void findAll() {
-        userUtils.findAll();
     }
 
     @CaseAnnotation(endpoint = "/api/user", httpType = POST, description = "Add new User")
     @Test
-    public void add() {
-        userUtils.add();
+    public void add() throws IOException {
+        given()
+                .contentType("application/json")
+                .body(userUtils.createUser())
+        .when()
+                .post("/api/user")
+        .then()
+                .statusCode(200);
     }
 }

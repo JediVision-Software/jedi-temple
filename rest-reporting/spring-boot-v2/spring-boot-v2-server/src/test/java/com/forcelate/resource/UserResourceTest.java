@@ -3,7 +3,6 @@ package com.forcelate.resource;
 import com.forcelate.domain.User;
 import com.forcelate.service.UserService;
 import com.forcelate.test.InitializationUtils;
-import com.forcelate.test.RandomUtils;
 import com.forcelate.test.runner.ApplicationResourceRunner;
 import org.junit.After;
 import org.junit.Before;

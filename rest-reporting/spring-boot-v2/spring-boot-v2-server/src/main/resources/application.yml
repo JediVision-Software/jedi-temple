@@ -2,6 +2,12 @@ spring:
   profiles:
     active: dev
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","mappings"]
+
 # Application Common Configuration
 appConfigs:
   cors:

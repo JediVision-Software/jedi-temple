@@ -14,7 +14,7 @@ import org.springframework.web.server.i18n.LocaleContextResolver;
 import java.util.Locale;
 
 @Configuration
-@ComponentScan("com.forcelate")
+@ComponentScan("com")
 @PropertySource("classpath:application-dev.properties")
 @Slf4j
 public class ApplicationPropertiesHolder {

@@ -1,49 +1,23 @@
 package com.forcelate.utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.forcelate.entity.User;
 import lombok.NoArgsConstructor;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+
 
 @NoArgsConstructor
 public final class UserUtils {
 
-    private List<User>users = new ArrayList<>();
+    private ObjectMapper objectMapper = new ObjectMapper();
 
-    @PostConstruct
-    public void postConstruct() {
-        this.users.add(User.builder()
-                .id(1L)
-                .username("username1")
-                .age(14)
-                .build());
-        this.users.add(User.builder()
-                .id(2L)
-                .username("username2")
-                .age(25)
-                .build());
-    }
+    public String createUser() throws IOException {
+        User user = new User();
+        user.setId(3L);
+        user.setUsername("username3");
+        user.setAge(28);
 
-    public void add() {
-
-        this.users.add(User.builder()
-                .id(3L)
-                .age(33)
-                .username("username3")
-                .build()) ;
-
-    }
-
-    public List<User> findAll() {
-        return this.users;
-    }
-
-    public User findOne(Long userId) {
-        return this.users.stream()
-                .filter(user -> user.getId().equals(userId))
-                .findFirst()
-                .orElse(null);
+        return objectMapper.writeValueAsString(user);
     }
 }
