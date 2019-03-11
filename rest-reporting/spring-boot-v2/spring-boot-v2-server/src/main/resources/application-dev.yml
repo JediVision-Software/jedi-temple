@@ -1,6 +1,6 @@
 # Server
 server:
-  port: 8787
+  port: 8228
 
 # Logging
 logging:
