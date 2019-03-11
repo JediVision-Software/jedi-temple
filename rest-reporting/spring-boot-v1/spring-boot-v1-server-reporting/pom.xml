@@ -72,6 +72,34 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>env-dev</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>dev</value>
+                </property>
+            </activation>
+            <properties>
+                <baseURI>http://localhost</baseURI>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>env-prod</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>prod</value>
+                </property>
+            </activation>
+            <properties>
+                <baseURI>http://207.154.240.224</baseURI>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -92,6 +120,9 @@
                     <includes>
                         <include>AccSuite.java</include>
                     </includes>
+                    <systemPropertyVariables>
+                        <app.restassure.baseURI>${baseURI}</app.restassure.baseURI>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
