@@ -1,20 +1,6 @@
-# spring-boot-default-skeleton
-Spring Boot Default Skeleton — Spring Boot, LOGGER
+# spring-boot-v2-server
+Spring Boot version 2..
 
-### Setup 
-* Cleanup
-
-```bash
-$ rm -rf .idea
-$ rm -rf .sonar
-$ rm -rf target
-$ find . -name '*.iml' -delete
-```
-* Copy (attention: on */.* )
-
-```bash
-$ cp -fR $SOURCE_PATH/. $TARGET_PATH
-```
 
 * Edit pom.xml: `artifactId`, `build.finalName` values (*e.g. app-server*)
 * Edit maven package: edit `jacoco-maven-plugin`, `sonar-project.properties`, `ApplicationResourceBeans.java`
