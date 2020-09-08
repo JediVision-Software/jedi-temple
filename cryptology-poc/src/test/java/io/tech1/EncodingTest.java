@@ -1,4 +1,4 @@
-package com.jedivision;
+package io.tech1;
 
 import org.junit.Test;
 
@@ -11,8 +11,8 @@ public class EncodingTest {
 
     private static final String GLOBAL_VALUE = "JDV";
     private static final String GLOBAL_SPECIAL_VALUE = "JDV©";
-    private static final String URL_VALUE = "http://www.jedivision-software.com";
-    private static final String ENCODED_URL_VALUE = "http%3A%2F%2Fwww.jedivision-software.com";
+    private static final String URL_VALUE = "http://www.tech1.io";
+    private static final String ENCODED_URL_VALUE = "http%3A%2F%2Fwww.tech1.io";
     private static final String GLOBAL_ENCODED_BASE_64_VALUE = "SkRW";
     private static final byte[] GLOBAL_ENCODED_ASCII_UTF_8_VALUE = {74, 68, 86};
     private static final byte[] GLOBAL_ENCODED_ASCII_SPECIAL_VALUE = {74, 68, 86, 63};

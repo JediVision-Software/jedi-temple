@@ -1,4 +1,4 @@
-package com.jedivision;
+package io.tech1;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

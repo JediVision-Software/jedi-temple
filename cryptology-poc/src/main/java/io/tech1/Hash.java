@@ -1,4 +1,4 @@
-package com.jedivision;
+package io.tech1;
 
 import com.lambdaworks.crypto.SCryptUtil;
 import org.apache.commons.codec.digest.DigestUtils;
