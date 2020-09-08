@@ -1,8 +1,9 @@
-# forcelate-temple-java
-Welcome to Forcelate Java Temple — Proofs of Concepts repository. May the force be with you.
+# tech1-temple-java
+Welcome to Proofs of Concepts repository about Java Ecosystem    
+May the force be with you  
 
 <p align="center">
-	<img src="https://github.com/forcelate/forcelate-temple-java/blob/master/img/jedi-temple.jpg?raw=true" alt=""/>
+	<img src="https://github.com/tech1-io/tech1-temple-java/blob/master/img/temple-java.jpg?raw=true" alt=""/>
 </p>
 
 # Proofs of Concepts:
