@@ -135,7 +135,7 @@ _Must know_:
 
 _Source (Java, Spring-based app):_
 
-https://github.com/forcelate/forcelate-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
+https://github.com/tech1-io/tech1-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
 
 ## [Digest Auth](https://en.wikipedia.org/wiki/Digest_access_authentication)
 
@@ -154,7 +154,7 @@ The digest authentication process is as follows:
 
 _Source (Java, Spring-based app):_
 
-https://github.com/forcelate/forcelate-temple-java/tree/master/authentication-and-security/spring-boot-digest-authentication-poc
+https://github.com/tech1-io/tech1-temple-java/tree/master/authentication-and-security/spring-boot-digest-authentication-poc
 
 ## Session-Based Auth
 
@@ -179,7 +179,7 @@ _Must know_:
 
 _Source (Java, Spring-based app):_
 
-https://github.com/forcelate/forcelate-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
+https://github.com/tec1-io/tech1-temple-java/tree/master/authentication-and-security/spring-boot-basic-authentication-poc
 
 ## [OAuth-Based Auth](https://en.wikipedia.org/wiki/OAuth)
 
